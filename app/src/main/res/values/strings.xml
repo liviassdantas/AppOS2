@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AppOS</string>
+    <string name="appos_logo">AppOS</string>
+    <string name="entrar">Entrar</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
+    <string name="ok">OK</string>
+</resources>

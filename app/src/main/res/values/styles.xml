@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppOSTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/laranjaPrincipal</item>
+        <item name="colorPrimaryDark">@color/laranjaEscuro</item>
+        <item name="colorAccent">@color/amarelo</item>
+    </style>
+
+<!--    <style name="AppOSTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="boxStrokeColor">@color/laranjaPrincipal</item>-->
+<!--        <item name="boxStrokeWidth">2dp</item>-->
+<!--        <item name="hintTextColor">@color/laranjaPrincipal</item>-->
+<!--        <item name="counterTextAppearance">@color/laranjaPrincipal</item>-->
+<!--        <item name="hintTextAppearance">@color/laranjaPrincipal</item>-->
+<!--        <item name="counterOverflowTextAppearance">@color/laranjaPrincipal</item>-->
+<!--        <item name="endIconTint">@color/laranjaPrincipal</item>-->
+<!--        <item name="counterTextColor">@color/laranjaPrincipal</item>-->
+<!--        <item name="counterOverflowTextColor">@color/laranjaPrincipal</item>-->
+<!--    </style>-->
+
+</resources>
