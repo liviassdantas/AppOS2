@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Fragments.CadastrarEmpresa">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                    android:id="@+id/fragment_cadastrar_empresa_txtCadastrar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cadastrar_empresa"
+                    android:textSize="25sp"
+                    android:textColor="@color/cinza"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputcpf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/fragment_cadastrar_empresa_txtCadastrar"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginEnd="80dp"
+                    android:layout_marginBottom="-62dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/activity_login_edtSenha"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/senha"
+                        android:textAlignment="center" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </RelativeLayout>
+</LinearLayout>
