@@ -16,7 +16,7 @@
     <AssemblyName>AppOSWebApi</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44310</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
@@ -156,10 +156,20 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginApiController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Models\StatusEnum.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClienteModels.cs" />
+    <Compile Include="Models\EmpresaModels.cs" />
+    <Compile Include="Models\EnderecoModels.cs" />
+    <Compile Include="Models\GetApiResponse.cs" />
+    <Compile Include="Models\OrdemServicoModels.cs" />
+    <Compile Include="Models\PostApiController.cs" />
+    <Compile Include="Models\ProdutosModels.cs" />
+    <Compile Include="Models\UsuarioModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -215,7 +225,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -264,7 +273,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57517</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44310/</IISUrl>
+          <IISUrl>http://localhost/AppOS</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
