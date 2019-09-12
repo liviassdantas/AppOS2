@@ -11,6 +11,7 @@ namespace AppOSWebApi.Models
         public String Nome { get; set; }
         public EnderecoModels Endereco { get; set; }
         public String Telefone { get; set; }
+        public String Email { get; set; }
 
         
     }

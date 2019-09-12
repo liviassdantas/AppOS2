@@ -6,11 +6,11 @@ using System.Web;
 
 namespace AppOSWebApi.Util
 {
-    public abstract class CONSTANTES
+    public class CONSTANTES
     {
-        public String ConexaoBanco = ConfigurationManager.AppSettings["CaminhoBanco"];
-        public String VersaoAPI = ConfigurationManager.AppSettings["Versao_API"];
-        public String NomeAPI = ConfigurationManager.AppSettings["Nome_API"];
+        public static String ConexaoBanco = ConfigurationManager.AppSettings["CaminhoBanco"];
+        public static String VersaoAPI = ConfigurationManager.AppSettings["Versao_API"];
+        public static String NomeAPI = ConfigurationManager.AppSettings["Nome_API"];
 
     }
 }
