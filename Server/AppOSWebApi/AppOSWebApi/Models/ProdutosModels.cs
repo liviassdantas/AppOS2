@@ -7,8 +7,8 @@ namespace AppOSWebApi.Models
 {
     public class ProdutosModels
     {
-        public String Nome { get; set; }
+        public String Descricao { get; set; }
         public String Marca { get; set; }
-        public ClienteModels Cliente { get; set; }
+        public ClienteModels ClienteResp { get; set; }
     }
 }

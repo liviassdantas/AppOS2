@@ -11,7 +11,7 @@ namespace AppOSWebApi.Models
     {
         public String Num_OS { get; set; }
         public ProdutosModels Produto { get; set; }
-        public EmpresaModels Empresa { get; set; }
+        public Empresa Empresa { get; set; }
        
         public DateTime Data_Agendamento { get; set; }
         public String Descricao_Problema { get; set; }

@@ -11,7 +11,7 @@ using System.Web;
 
 namespace AppOSWebApi.DAO
 {
-    public class EmpresaDAO : BaseDAO<EmpresaModels>
+    public class EmpresaDAO : BaseDAO<Empresa>
     {
         
     }

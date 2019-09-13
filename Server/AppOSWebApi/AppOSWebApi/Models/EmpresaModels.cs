@@ -6,9 +6,10 @@ using System.Web;
 
 namespace AppOSWebApi.Models
 {
-    public class EmpresaModels: BaseModel
+    public class Empresa: BaseModel
     {
         public String CPFCNPJ { get; set; }
+        public String Nome { get; set; }
         public EnderecoModels Endereco { get; set; }
         public String Telefone { get; set; }
         public DateTime Data_Ultima_Atualizacao { get; set; }
@@ -21,5 +22,24 @@ namespace AppOSWebApi.Models
     {
         public String Senha { get; set; }
         public DateTime Ultimo_Acesso { get; set; }
+        public String Pergunta_Secreta { get; set; }
+        public String Resposta_Secreta { get; set; }
     }
+
+
+    public class EmpresaEsqueciSenha
+    {
+        public String CPFCNPJ { get; set; }
+        public String Pergunta_Secreta { get; set; }
+        public String Resposta_secreta { get; set; }
+    }
+
+
+    public class EmpresaSenha
+    {
+        public String CPFCNPJ { get; set; }
+        public String Senha_Antiga { get; set; }
+        public String Senha_Nova { get; set; }
+    }
+
 }

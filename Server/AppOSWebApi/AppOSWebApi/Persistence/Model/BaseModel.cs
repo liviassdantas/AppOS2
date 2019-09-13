@@ -12,10 +12,10 @@ namespace AppOSWebApi.Core
     {
         internal object id;
 
-        public ObjectId _Id { get; set; }
+        public ObjectId _id { get; set; }
         public String IdString {
             get {
-                return _Id.ToString();
+                return _id.ToString();
             }
         }
 
