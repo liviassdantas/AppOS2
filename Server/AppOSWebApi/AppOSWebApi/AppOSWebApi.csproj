@@ -187,6 +187,7 @@
     <Compile Include="Controllers\EmpresaApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginApiController.cs" />
+    <Compile Include="Controllers\OrdemServicoApiController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Persistence\DAO\BaseDAO.cs" />
     <Compile Include="Persistence\DAO\Ordem_ServicoDAO.cs" />
