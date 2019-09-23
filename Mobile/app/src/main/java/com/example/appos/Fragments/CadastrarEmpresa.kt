@@ -9,6 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.appos.R
+
 class CadastrarEmpresa : Fragment() {
 
-}
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_cadastrar_empresa, container, false)
+        return view
+    }
+    }

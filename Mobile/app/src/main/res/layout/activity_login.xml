@@ -90,6 +90,12 @@
                 android:textColor="@color/laranjaEscuro">
         </com.google.android.material.button.MaterialButton>
 
+        <FrameLayout
+                android:id="@+id/ContainerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        </FrameLayout>
+
         <com.google.android.material.button.MaterialButton
                 android:id="@+id/activity_login_btnEsqueciSenha"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
