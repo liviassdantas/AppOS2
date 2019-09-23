@@ -9,8 +9,10 @@ namespace AppOSWebApi.Models
     {
         public String CPF_CNPJ { get; set; }
         public String Nome { get; set; }
+        public DateTime Data_Nasc { get; set; }
         public EnderecoModels Endereco { get; set; }
         public String Telefone { get; set; }
+        public String Email { get; set; }
 
         
     }

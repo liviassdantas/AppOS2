@@ -1,22 +1,45 @@
-﻿using System;
+﻿using AppOSWebApi.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace AppOSWebApi.Models
 {
-    public class EmpresaModels
+    public class Empresa: BaseModel
     {
         public String CPFCNPJ { get; set; }
-        public EnderecoModels Endereco { get; set; } 
+        public String Nome { get; set; }
+        public EnderecoModels Endereco { get; set; }
         public String Telefone { get; set; }
         public DateTime Data_Ultima_Atualizacao { get; set; }
-        
+        public String Email { get;set; }
+        public EmpresaLoginModels Login { get; set; }
+
     }
 
     public class EmpresaLoginModels
     {
-        public String CPFCNPJ { get; set; }
         public String Senha { get; set; }
+        public DateTime Ultimo_Acesso { get; set; }
+        public String Pergunta_Secreta { get; set; }
+        public String Resposta_Secreta { get; set; }
     }
+
+
+    public class EmpresaEsqueciSenha
+    {
+        public String CPFCNPJ { get; set; }
+        public String Pergunta_Secreta { get; set; }
+        public String Resposta_secreta { get; set; }
+    }
+
+
+    public class EmpresaSenha
+    {
+        public String CPFCNPJ { get; set; }
+        public String Senha_Antiga { get; set; }
+        public String Senha_Nova { get; set; }
+    }
+
 }
