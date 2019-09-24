@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        >
-<androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
     <TextView
             android:layout_width="wrap_content"
@@ -17,10 +14,84 @@
             android:text="@string/cadastro_de_os"
             android:textColor="@color/cinza"
             android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold" />
 
-    <!-- Colocar os text input iguais da tela de cadastro de empresa-->
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputNumOs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_OS_edtNumOs"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/branco"
+                    android:hint="@string/num_os"
+                    android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/fragment_cadastrar_OS_txtServico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/informe_o_servico"
+                app:layout_constraintTop_toBottomOf="@+id/inputNumOs"
+                tools:visibility="visible" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputdescServ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/fragment_cadastrar_OS_txtServico"
+                app:layout_constraintTop_toBottomOf="@id/fragment_cadastrar_OS_txtServico">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_OS_edtDescServico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/branco"
+                    android:hint="@string/descricaoservico" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputresponsavel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/inputdescServ"
+                app:layout_constraintTop_toBottomOf="@id/inputdescServ">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_OS_edtResponsavel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/branco"
+                    android:hint="@string/responsaveltecnico" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputCliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/inputresponsavel"
+                app:layout_constraintTop_toBottomOf="@id/inputresponsavel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_empresa_edtEndereco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/branco"
+                    android:hint="@string/idCliente" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

@@ -21,4 +21,11 @@
     <string name="estado">Estado:</string>
     <string name="numero">Nº.:</string>
     <string name="cadastrar_senha">Cadastrar Senha</string>
+    <string name="cadastro_de_os">Cadastrar Ordem de Serviço</string>
+    <string name="cadastro_de_cliente">Cadastrar Cliente</string>
+    <string name="num_os">Número da OS.:</string>
+    <string name="informe_o_servico">Informe o serviço</string>
+    <string name="descricaoservico">Descrição do Serviço:</string>
+    <string name="responsaveltecnico">Responsável técnico:</string>
+    <string name="idCliente">CPF ou nome do cliente:</string>
 </resources>
