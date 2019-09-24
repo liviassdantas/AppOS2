@@ -49,9 +49,8 @@ namespace AppOSWebApi.Persistence.DAO
             {
                 IMongoDatabase banco = DataSource.GetConnection();
                 IMongoCollection<T> collection = banco.GetCollection<T>(obj.GetType().Name);
-
-                Expression<Func<T, bool>> filter = x => x.id.Equals(obj.id.ToString());
-
+                
+                Expression<Func<T, bool>> filter = x => x._id == obj._id;
                 await collection.DeleteOneAsync<T>(filter);
             }
             catch (Exception ex)

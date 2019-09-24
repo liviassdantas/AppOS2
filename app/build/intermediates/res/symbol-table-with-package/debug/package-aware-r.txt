@@ -763,6 +763,10 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color checkbox_themeable_attribute_color
+<<<<<<< HEAD
+=======
+color cinza
+>>>>>>> master
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
@@ -888,6 +892,10 @@ color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+<<<<<<< HEAD
+=======
+color notification_material_background_media_default_color
+>>>>>>> master
 color preto
 color primary_dark_material_dark
 color primary_dark_material_light
@@ -1228,6 +1236,13 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+<<<<<<< HEAD
+=======
+dimen subtitle_corner_radius
+dimen subtitle_outline_width
+dimen subtitle_shadow_offset
+dimen subtitle_shadow_radius
+>>>>>>> master
 dimen test_mtrl_calendar_day_cornerSize
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
@@ -1353,6 +1368,10 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+<<<<<<< HEAD
+=======
+drawable ic_rettcc
+>>>>>>> master
 drawable logo_branco
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
@@ -1423,6 +1442,10 @@ id accessibility_custom_action_6
 id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
+<<<<<<< HEAD
+=======
+id action0
+>>>>>>> master
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1442,6 +1465,12 @@ id action_mode_close_button
 id action_text
 id actions
 id activity_chooser_view_content
+<<<<<<< HEAD
+=======
+id activity_login_btnEntrar
+id activity_login_btnEsqueciSenha
+id activity_login_btnSemCadastro
+>>>>>>> master
 id activity_login_edtLogin
 id activity_login_edtSenha
 id activity_login_txtLogo
@@ -1456,6 +1485,10 @@ id beginning
 id blocking
 id bottom
 id buttonPanel
+<<<<<<< HEAD
+=======
+id cancel_action
+>>>>>>> master
 id cancel_button
 id center
 id center_horizontal
@@ -1493,6 +1526,10 @@ id disableHome
 id dropdown_menu
 id edit_query
 id end
+<<<<<<< HEAD
+=======
+id end_padder
+>>>>>>> master
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
@@ -1507,6 +1544,11 @@ id filter_chip
 id fitToContents
 id fixed
 id forever
+<<<<<<< HEAD
+=======
+id fragment_cadastrar_empresa_edtCPF
+id fragment_cadastrar_empresa_txtCadastrar
+>>>>>>> master
 id ghost_view
 id gone
 id group_divider
@@ -1521,6 +1563,10 @@ id image
 id info
 id inputEdtLogin
 id inputSenha
+<<<<<<< HEAD
+=======
+id inputcpf
+>>>>>>> master
 id invisible
 id italic
 id item_touch_helper_previous_elevation
@@ -1532,6 +1578,10 @@ id line3
 id listMode
 id list_item
 id masked
+<<<<<<< HEAD
+=======
+id media_actions
+>>>>>>> master
 id message
 id middle
 id mini
@@ -1630,6 +1680,10 @@ id src_in
 id src_over
 id standard
 id start
+<<<<<<< HEAD
+=======
+id status_bar_latest_event_content
+>>>>>>> master
 id stretch
 id submenuarrow
 id submit_area
@@ -1755,6 +1809,10 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+<<<<<<< HEAD
+=======
+layout fragment_cadastrar_empresa
+>>>>>>> master
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -1785,8 +1843,22 @@ layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
 layout notification_action
 layout notification_action_tombstone
+<<<<<<< HEAD
 layout notification_template_custom_big
 layout notification_template_icon_group
+=======
+layout notification_media_action
+layout notification_media_cancel_action
+layout notification_template_big_media
+layout notification_template_big_media_custom
+layout notification_template_big_media_narrow
+layout notification_template_big_media_narrow_custom
+layout notification_template_custom_big
+layout notification_template_icon_group
+layout notification_template_lines_media
+layout notification_template_media
+layout notification_template_media_custom
+>>>>>>> master
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout select_dialog_item_material
@@ -1840,16 +1912,31 @@ string app_name
 string appbar_scrolling_view_behavior
 string appos_logo
 string bottom_sheet_behavior
+<<<<<<< HEAD
+=======
+string cadastrar_empresa
+>>>>>>> master
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+<<<<<<< HEAD
 string entrar
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+=======
+string cpf_cnpj
+string entrar
+string error_icon_content_description
+string esqueci_senha
+string exposed_dropdown_menu_content_description
+string fab_transformation_scrim_behavior
+string fab_transformation_sheet_behavior
+string hello_blank_fragment
+>>>>>>> master
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string login
@@ -1892,6 +1979,10 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
+<<<<<<< HEAD
+=======
+string sem_cadastro
+>>>>>>> master
 string senha
 string status_bar_notification_info_overflow
 style AlertDialog_AppCompat
@@ -2236,9 +2327,20 @@ style TextAppearance_AppCompat_Widget_Switch
 style TextAppearance_AppCompat_Widget_TextView_SpinnerItem
 style TextAppearance_Compat_Notification
 style TextAppearance_Compat_Notification_Info
+<<<<<<< HEAD
 style TextAppearance_Compat_Notification_Line2
 style TextAppearance_Compat_Notification_Time
 style TextAppearance_Compat_Notification_Title
+=======
+style TextAppearance_Compat_Notification_Info_Media
+style TextAppearance_Compat_Notification_Line2
+style TextAppearance_Compat_Notification_Line2_Media
+style TextAppearance_Compat_Notification_Media
+style TextAppearance_Compat_Notification_Time
+style TextAppearance_Compat_Notification_Time_Media
+style TextAppearance_Compat_Notification_Title
+style TextAppearance_Compat_Notification_Title_Media
+>>>>>>> master
 style TextAppearance_Design_CollapsingToolbar_Expanded
 style TextAppearance_Design_Counter
 style TextAppearance_Design_Counter_Overflow

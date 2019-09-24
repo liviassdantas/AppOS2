@@ -28,12 +28,21 @@ namespace AppOSWebApi.Models
     {
         public ProdutosModels Produto { get; set; }
         public String CPFCNPJ_Empresa { get; set; }
+        public Int64 NumOS { get; set; }
         public String Descricao_problema { get; set; }
         public String Observacao_produto { get; set; }
         public float Valor_Servico { get; set; }
         public String Tecnico_Resp { get; set; }
         public int status { get; set; }
         public DateTime Data_Agendamento { get; set; }
+    }
+
+
+    public class OrdemServicoParam
+    {
+       public Int64? Num_OS { get; set; }
+       public String CPFCNPJ_Empresa { get; set; }
+       public int status { get; set; }
     }
 
 }

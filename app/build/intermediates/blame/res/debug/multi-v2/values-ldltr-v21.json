@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\livia\\StudioProjects\\AppOS2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\livia\\.gradle\\caches\\transforms-2\\files-2.1\\a73c3974fa47bb64187237bb2a2898dc\\appcompat-1.1.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+=======
+            "outputFile": "C:\\Users\\user\\AndroidStudioProjects\\AppOS2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\a73c3974fa47bb64187237bb2a2898dc\\appcompat-1.1.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+>>>>>>> master
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

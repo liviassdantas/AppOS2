@@ -3,6 +3,7 @@
   <component name="WizardSettings">
     <option name="children">
       <map>
+<<<<<<< HEAD
         <entry key="imageWizard">
           <value>
             <PersistentState>
@@ -122,6 +123,8 @@
             </PersistentState>
           </value>
         </entry>
+=======
+>>>>>>> master
         <entry key="vectorWizard">
           <value>
             <PersistentState>
@@ -133,12 +136,17 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
+<<<<<<< HEAD
                             <entry key="autoMirrored" value="true" />
                             <entry key="height" value="50" />
                             <entry key="outputName" value="ic_icone_appos" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="C:\Users\livia\OneDrive\Documentos\FSJ - Aulas\6º período\TCC\Imagens\Logos\icone appos.svg" />
                             <entry key="width" value="64" />
+=======
+                            <entry key="outputName" value="ic_rettcc" />
+                            <entry key="sourceFile" value="C:\Users\user\Downloads\retTCC.svg" />
+>>>>>>> master
                           </map>
                         </option>
                       </PersistentState>
