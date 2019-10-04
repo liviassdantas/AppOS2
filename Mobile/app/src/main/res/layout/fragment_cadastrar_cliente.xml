@@ -9,6 +9,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <TextView
+                android:id="@+id/txt_cadastrar_cliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -20,6 +21,152 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         <!--Fazer o restante do layout igual a tela de cadastrar empresa -->
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputcpf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_cliente">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_cliente_edtCPF"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/branco"
+                    android:hint="@string/cpf"
+                    />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputnomecliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/inputcpf"
+                tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_cliente_edtNomeCliente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/branco"
+                    android:hint="@string/nome"
+                    />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputtelefone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/inputnomecliente"
+                app:layout_constraintTop_toBottomOf="@id/inputnomecliente">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_cliente_edtTelefone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/branco"
+                    android:hint="@string/telefone"
+                    />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputcep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/inputtelefone"
+                app:layout_constraintTop_toBottomOf="@id/inputtelefone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_cliente_edtCep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/branco"
+                    android:hint="@string/cep"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputendereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/inputcep"
+                app:layout_constraintTop_toBottomOf="@id/inputcep">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_cliente_edtEndereco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/branco"
+                    android:hint="@string/endereco"
+                    />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputestado"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/inputendereco"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputendereco">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_cliente_edtEstado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/branco"
+                    android:hint="@string/estado" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputcidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/inputestado"
+                app:layout_constraintTop_toBottomOf="@id/inputendereco">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_cliente_edtCidade"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/branco"
+                    android:hint="@string/cidade" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputbairro"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/inputestado"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputestado">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_cliente_edtBairro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/branco"
+                    android:hint="@string/bairro" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputnumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/inputbairro"
+                app:layout_constraintTop_toBottomOf="@id/inputcidade">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_cadastrar_cliente_edtNumResidencia"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/branco"
+                    android:hint="@string/numero" />
+        </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

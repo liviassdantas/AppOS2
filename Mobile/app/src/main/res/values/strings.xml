@@ -28,4 +28,6 @@
     <string name="descricaoservico">Descrição do Serviço:</string>
     <string name="responsaveltecnico">Responsável técnico:</string>
     <string name="idCliente">CPF ou nome do cliente:</string>
+    <string name="cpf">CPF</string>
+    <string name="nome">Nome do Cliente</string>
 </resources>

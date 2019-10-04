@@ -18,11 +18,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <include
+                android:id="@+id/layout_cadastrar_cliente"
                 layout="@layout/fragment_cadastrar_cliente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="-17dp"
-                tools:layout_editor_absoluteY="360dp" />
+                tools:layout_editor_absoluteY="360dp"
+                android:visibility="gone"
+                tools:visibility="visible"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.button.MaterialButton
             android:id="@+id/activity_login_btnSalvar"
