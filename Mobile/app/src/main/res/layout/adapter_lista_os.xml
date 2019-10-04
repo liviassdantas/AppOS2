@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/Widget.MaterialComponents.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/branco"
+        android:minHeight="180dp">
+
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:id="@+id/adapter_lista_os_txtTipoServico"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="25dp"
+                    android:text="@string/tipo_de_servico"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    />
+
+            <TextView
+                    android:id="@+id/adapter_lista_os_txtNumOS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/adapter_lista_os_txtTipoServico"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="-40dp"
+                    android:layout_alignStart="@id/adapter_lista_os_txtTipoServico"
+                    android:text="@string/preencher_numos"
+                    android:textSize="20sp" />
+
+            <TextView
+                    android:id="@+id/adapter_lista_os_btnAtualizar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/adapter_lista_os_txtNumOS"
+                    android:layout_marginTop="50dp"
+                    android:layout_alignStart="@id/adapter_lista_os_txtNumOS"
+                    android:layout_marginBottom="0dp"
+                    android:text="@string/atualizar"
+                    android:textSize="20sp" />
+
+            <TextView
+                    android:id="@+id/adapter_lista_os_btnContatarCliente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/adapter_lista_os_txtNumOS"
+                    android:layout_marginTop="50dp"
+                    android:layout_alignStart="@id/adapter_lista_os_btnAtualizar"
+                    android:layout_marginStart="120dp"
+                    android:text="@string/contatar_cliente"
+                    android:textSize="20sp" />
+        </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
