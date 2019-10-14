@@ -22,16 +22,16 @@ namespace AppOSWebApi.Models
     {
         public String Senha { get; set; }
         public DateTime Ultimo_Acesso { get; set; }
-        public String Pergunta_Secreta { get; set; }
-        public String Resposta_Secreta { get; set; }
+        public String Nome { get; set; }
+        public String Email { get; set; }
     }
 
 
     public class EmpresaEsqueciSenha
     {
         public String CPFCNPJ { get; set; }
-        public String Pergunta_Secreta { get; set; }
-        public String Resposta_secreta { get; set; }
+        public String NomeRazaoSocial { get; set; }
+        public String Email { get; set; }
     }
 
 

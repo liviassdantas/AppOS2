@@ -80,8 +80,10 @@ namespace AppOSWebApi.Controllers
             {
                 Expression<Func<Empresa, bool>> filter = x =>
                                                 x.CPFCNPJ.Equals(values.CPFCNPJ) &&
-                                                x.Login.Pergunta_Secreta.Equals(values.Pergunta_Secreta) &&
-                                                x.Login.Resposta_Secreta.Equals(values.Resposta_secreta);
+                                                x.Login.Nome.Equals(values.NomeRazaoSocial) &&
+                                                x.Login.Email.Equals(values.Email);
+
+
 
                 var empresa = new EmpresaDAO().FindFirstBywhere(filter);
                 if (empresa == null)
