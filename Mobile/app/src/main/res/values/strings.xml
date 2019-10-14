@@ -35,5 +35,6 @@
     <string name="preencher_numos">N°.:%s</string>
     <string name="atualizar">Atualizar</string>
     <string name="contatar_cliente">Contatar Cliente</string>
+    <string name="email">Email:</string>
 
 </resources>
