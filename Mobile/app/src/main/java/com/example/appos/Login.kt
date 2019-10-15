@@ -1,6 +1,6 @@
 package com.example.appos
 
-import Service.RobinCamera
+
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +15,7 @@ class Login : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container_fragment_principal, FragLogin(), "Login")
             .commit()
+
 
     }
 }
