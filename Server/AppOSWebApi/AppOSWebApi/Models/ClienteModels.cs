@@ -14,6 +14,7 @@ namespace AppOSWebApi.Models
         public String Telefone { get; set; }
         public String Email { get; set; }
 
+
         
     }
 }
