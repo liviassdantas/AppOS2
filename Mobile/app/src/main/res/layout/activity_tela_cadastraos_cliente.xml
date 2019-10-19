@@ -22,15 +22,5 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <com.google.android.material.button.MaterialButton
-            android:id="@+id/activity_login_btnSalvar"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:background="@color/branco"
-            android:text="@string/sem_cadastro"
-            android:textColor="@color/laranjaPrincipal" />
     </LinearLayout>
 </ScrollView>
