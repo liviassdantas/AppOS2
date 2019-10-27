@@ -1,33 +1,38 @@
-package com.example.repo.Repository
-//
-//import android.app.Application
-//import androidx.lifecycle.AndroidViewModel
-//import androidx.lifecycle.LifecycleOwner
-//import androidx.lifecycle.LiveData
-//import androidx.lifecycle.MutableLiveData
-//import androidx.lifecycle.Observer
-//import android.telephony.TelephonyManager
-//import br.com.sinapse.aniel.core.entity.exceptions.EAnielException
-//import br.com.sinapse.aniel.core.entity.service.AnielLocalizacao
-//import br.com.sinapse.logistiquedata.entity.OrdemServico
-//import br.com.sinapse.logistiquedata.entity.QualidadeServico
-//import br.com.sinapse.logistiquedata.enums.DocumentoProducaoStatus
-//import br.com.sinapse.touchrepo.repository.OSRepository
-//import br.com.sinapse.touchrepo.util.Prefs
-//import kotlinx.coroutines.Dispatchers
-//import kotlinx.coroutines.GlobalScope
-//import kotlinx.coroutines.async
-//import kotlinx.coroutines.launch
-//import java.util.concurrent.Executors
+package com.example.appos.view_model
 
-class OSView(){
-    //class OSView(val app: Application) : AndroidViewModel(app)
-//    private val liveOS = MutableLiveData<List<OrdemServico>>()
-//    private val liveQualidade = MutableLiveData<List<QualidadeServico>>()
-//    fun retorno(): LiveData<List<OrdemServico>?> = liveOS
-//
-//    fun retorno_qualidade(): LiveData<List<QualidadeServico>?> = liveQualidade
-//
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.example.data.entity.Empresa
+import com.example.repo.repository.EmpresaRepo
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
+
+class EmpresaView(private val app: Application) : AndroidViewModel(app) {
+    val empresaLiveData = MutableLiveData<MutableList<Empresa>>()
+    fun retorno(): LiveData<MutableList<Empresa>?> = empresaLiveData
+
+    fun getAll() = GlobalScope.launch(Dispatchers.IO) {
+        val retorno = EmpresaRepo(app).getAllEmpresas()
+        empresaLiveData.postValue(retorno.value)
+    }
+
+    fun insert(empresa: Empresa) = GlobalScope.launch(Dispatchers.IO) {
+        EmpresaRepo(app).insert(empresa)
+    }
+
+    fun delete(empresa: Empresa) = GlobalScope.launch(Dispatchers.IO) {
+        EmpresaRepo(app).delete(empresa)
+    }
+
+    fun getByCpfCnpj(cpf_cnpj: String) = GlobalScope.launch(Dispatchers.IO) {
+            val retorno = EmpresaRepo(app).selectEmpresaByCpfCnpj(cpf_cnpj)
+            empresaLiveData.postValue(mutableListOf(retorno))
+        }
+
 //    fun get(telefone: TelephonyManager?) {
 //        Executors.newSingleThreadExecutor().submit {
 //            liveOS.postValue(OSRepository(app, telefone).get())
@@ -75,6 +80,6 @@ class OSView(){
 //    fun refreshQualidade() = GlobalScope.launch(Dispatchers.IO){
 //        liveQualidade.postValue(OSRepository(app,null).getQualidadeServicoRefresh())
 //    }
-//
+
 
 }

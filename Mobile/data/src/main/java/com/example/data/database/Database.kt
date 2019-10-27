@@ -1,18 +1,22 @@
 package com.example.data.database
 
 import android.content.Context
+import androidx.room.*
 import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import com.example.data.dao.EmpresaDao
 import com.example.data.entity.*
+import com.example.data.util.Converter
 
-
+@TypeConverters(Converter::class)
 @Database(entities = [Cliente::class,
     Empresa::class,
     OS::class,
     Produto::class], version = 1)
 abstract class Database : RoomDatabase(){
+    abstract fun empresaDao(): EmpresaDao
+
     companion object{
+
         private var INSTANCE: com.example.data.database.Database? =null
 
             fun getInstance(context: Context): com.example.data.database.Database? {

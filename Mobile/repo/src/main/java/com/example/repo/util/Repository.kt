@@ -2,7 +2,7 @@ package com.example.repo.util
 
 import Util.Coalesce
 
-internal class Repository<T : List<*>>(val repoDoIt: RepoDoIt<T>) {
+class Repository<T : List<*>>(val repoDoIt: RepoDoIt<T>) {
 
     fun refresh(): T {
         repoDoIt.refreshLocal(repoDoIt.servidor())
