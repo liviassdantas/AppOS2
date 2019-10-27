@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 
 class EmpresaView(private val app: Application) : AndroidViewModel(app) {
     val empresaLiveData = MutableLiveData<MutableList<Empresa>>()
+    val ret  = MutableLiveData<Long>()
     fun retorno(): LiveData<MutableList<Empresa>?> = empresaLiveData
 
     fun getAll() = GlobalScope.launch(Dispatchers.IO) {
@@ -21,7 +22,8 @@ class EmpresaView(private val app: Application) : AndroidViewModel(app) {
     }
 
     fun insert(empresa: Empresa) = GlobalScope.launch(Dispatchers.IO) {
-        EmpresaRepo(app).insert(empresa)
+        val id = EmpresaRepo(app).insert(empresa)
+        ret.postValue(id)
     }
 
     fun delete(empresa: Empresa) = GlobalScope.launch(Dispatchers.IO) {

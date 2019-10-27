@@ -36,5 +36,11 @@
     <string name="atualizar">Atualizar</string>
     <string name="contatar_cliente">Contatar Cliente</string>
     <string name="email">Email:</string>
+    <string name="erro_cpf_cnpj">O CPF/CNPJ não pode ser nulo</string>
+    <string name="erro_nome_razao">O nome/razão social não pode ficar em branco</string>
+    <string name="erro_meio_contato">Informe um número de telefone ou email para contato</string>
+    <string name="erro_cep">É obrigatório informar o CEP</string>
+    <string name="erro_senha">É necessário cadastrar uma senha</string>
+    <string name="erro_confirmar_sneha">É necessário confirmar a senha para prosseguir</string>
 
 </resources>

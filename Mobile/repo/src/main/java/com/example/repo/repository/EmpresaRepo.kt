@@ -20,8 +20,8 @@ class EmpresaRepo(application: Application) {
         return empresaLiveData
     }
 
-    fun insert(empresa: Empresa){
-        empresaDao.insert(empresa)
+    fun insert(empresa: Empresa):Long{
+        return empresaDao.insert(empresa)
     }
 
     fun delete(empresa: Empresa){

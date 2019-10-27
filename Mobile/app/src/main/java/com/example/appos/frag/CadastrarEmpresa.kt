@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.appos.R
 import com.example.appos.buscaCEPRetrofit.RetrofitInitializer
+import com.example.appos.util.Mask
 import com.example.appos.view_model.EmpresaView
 import com.example.data.entity.CEP
 import com.example.data.entity.Empresa
@@ -63,20 +64,39 @@ class CadastrarEmpresa : Fragment() {
         edtConfirmarSenha = view.findViewById(R.id.fragment_cadastrar_empresa_edtCadastrarSenha)
         btnCadastarEmpresa = view.findViewById(R.id.fragment_cadastrar_empresa_btnSalvar)
 
+//        edtCpf_Cnpj?.addTextChangedListener(Mask.mask("###.###.###-##", edtCpf_Cnpj!!))
+
         btnCadastarEmpresa?.setOnClickListener{
-            salvaDados(
-            edtCpf_Cnpj?.text.toString(),
-            edtNome_RazaoSocial?.text.toString(),
-            edtEmail?.text.toString(),
-            edtTelefone?.text.toString(),
-            edtCep?.text.toString(),
-            edtEndereco?.text.toString(),
-            edtEstado?.text.toString(),
-            edtCidade?.text.toString(),
-            edtBairro?.text.toString(),
-            edtNum_Residencia?.text.toString(),
-            edtSenha?.text.toString()
-        )
+
+            if(edtCpf_Cnpj?.text.isNullOrBlank()){
+                edtCpf_Cnpj?.error = getString(R.string.erro_cpf_cnpj)
+            }else if(edtNome_RazaoSocial?.text.isNullOrBlank()){
+                edtNome_RazaoSocial?.error = getString(R.string.erro_nome_razao)
+            }else if (edtTelefone?.text.isNullOrBlank()&&edtEmail?.text.isNullOrBlank()){
+                edtTelefone?.error = getString(R.string.erro_meio_contato)
+            }else if (edtCep?.text.isNullOrBlank()){
+                edtCep?.error = getString(R.string.erro_cep)
+            }else if (edtSenha?.text.isNullOrBlank()){
+                edtSenha?.error = getString(R.string.erro_senha)
+            }else if(edtConfirmarSenha?.text.isNullOrBlank()){
+                edtConfirmarSenha?.error = getString(R.string.erro_confirmar_sneha)
+            }else {
+
+                val empresa = Empresa().apply {
+                    cpf_cnpj = edtCpf_Cnpj?.text.toString()
+                    nome = edtNome_RazaoSocial?.text.toString()
+                    email = edtEmail?.text.toString()
+                    telefone = edtTelefone?.text.toString()
+                    endereco = edtEndereco?.text.toString()
+                    cep = edtCep?.text.toString()
+                    cidade = edtCidade?.text.toString()
+                    bairro = edtBairro?.text.toString()
+                    estado = edtEstado?.text.toString()
+                    num_residencia = edtNum_Residencia?.text.toString()
+                    senha = edtConfirmarSenha?.text.toString()
+                }
+                salvaDados(empresa)
+            }
         }
 
         edtCep?.addTextChangedListener(object : TextWatcher {
@@ -120,52 +140,18 @@ class CadastrarEmpresa : Fragment() {
         })
 
 
-        empresaViewModel.empresaLiveData.observe(this@CadastrarEmpresa, Observer {
-            if (it != null) {
+        empresaViewModel.ret.observe(this@CadastrarEmpresa, Observer {
                 MaterialAlertDialogBuilder(context)
                     .setTitle("Cadastrado com Sucesso")
                     .setMessage("Empresa cadastrada com sucesso")
                     .setPositiveButton("Ok", null)
                     .show()
-            }
-        })
+       })
 
         return view
     }
 
-
-    fun salvaDados(
-        cpf_cnpj: String,
-        nome_razao: String,
-        email: String,
-        telefone: String,
-        cep: String,
-        endereco: String,
-        estado: String,
-        cidade: String,
-        bairro: String,
-        num_residencia: String,
-        senha: String
-    ) {
-        val empresa = Empresa(
-            cpf_cnpj,
-            nome_razao,
-            telefone,
-            cep,
-            email,
-            endereco,
-            estado,
-            cidade,
-            bairro,
-            num_residencia,
-            senha
-        )
-
-        empresaViewModel.insert(empresa)
-        MaterialAlertDialogBuilder(context)
-            .setTitle("Cadastrado com Sucesso")
-            .setMessage("Empresa cadastrada com sucesso")
-            .setPositiveButton("Ok", null)
-            .show()
+    fun salvaDados(empresa: Empresa) {
+         empresaViewModel.insert(empresa)
     }
 }

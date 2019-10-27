@@ -10,7 +10,7 @@ import com.example.data.entity.Empresa
 @Dao
 interface EmpresaDao {
     @Insert
-    fun insert(empresa: Empresa)
+    fun insert(empresa: Empresa):Long
 
     @Delete
     fun delete(empresa: Empresa)
