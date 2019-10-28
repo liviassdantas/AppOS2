@@ -15,6 +15,7 @@ class FragLogin : Fragment() {
 
         view.findViewById<Button>(R.id.activity_login_btnSemCadastro).setOnClickListener {
             fragmentManager?.beginTransaction()
+                ?.addToBackStack("Login")
                 ?.replace(R.id.container_fragment_principal, CadastrarEmpresa(), "Login")
                 ?.commit()
         }

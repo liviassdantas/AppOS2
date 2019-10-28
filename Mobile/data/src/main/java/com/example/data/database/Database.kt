@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.*
 import androidx.room.Database
 import com.example.data.dao.EmpresaDao
+import com.example.data.dao.OSDao
 import com.example.data.entity.*
 import com.example.data.util.Converter
 
@@ -14,6 +15,7 @@ import com.example.data.util.Converter
     Produto::class], version = 1)
 abstract class Database : RoomDatabase(){
     abstract fun empresaDao(): EmpresaDao
+    abstract fun osDao(): OSDao
 
     companion object{
 

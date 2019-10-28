@@ -1,11 +1,11 @@
-package com.example.appos.buscaCEPRetrofit
+package com.example.repo.server
 
 import com.example.data.entity.CEP
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface APIRetrofitService {
+interface APICep {
 
     @GET("{CEP}/json/")
     fun getEnderecoByCEP(@Path("CEP") CEP : String) : Call<CEP>

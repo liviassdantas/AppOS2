@@ -1,18 +1,18 @@
-package com.example.appos.buscaCEPRetrofit
+package com.example.repo.server
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitInitializer {
+class CepInitializer {
     fun init(){}
 
-    val retrofit= Retrofit.Builder()
+    val retrofit = Retrofit.Builder()
         .baseUrl("https://viacep.com.br/ws/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun apiRetrofitService(): APIRetrofitService {
-        return retrofit.create(APIRetrofitService::class.java)
+    fun apiCep(): APICep {
+        return retrofit.create(APICep::class.java)
     }
 
 }

@@ -39,7 +39,7 @@
                     android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        <com.google.android.material.textview.MaterialAutoCompleteTextView
                 android:id="@+id/fragment_cadastrar_OS_txtServico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                 app:layout_constraintTop_toBottomOf="@id/inputresponsavel">
 
             <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fragment_cadastrar_empresa_edtEndereco"
+                    android:id="@+id/fragment_cadastrar_OS_edtCPF"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/branco"

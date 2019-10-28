@@ -7,22 +7,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.appos.R
-import com.example.appos.buscaCEPRetrofit.RetrofitInitializer
-import com.example.appos.util.Mask
 import com.example.appos.view_model.EmpresaView
 import com.example.data.entity.CEP
 import com.example.data.entity.Empresa
+import com.example.repo.server.CepInitializer
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
 
 class CadastrarEmpresa : Fragment() {
@@ -67,8 +66,9 @@ class CadastrarEmpresa : Fragment() {
 //        edtCpf_Cnpj?.addTextChangedListener(Mask.mask("###.###.###-##", edtCpf_Cnpj!!))
 
         btnCadastarEmpresa?.setOnClickListener{
-
-            if(edtCpf_Cnpj?.text.isNullOrBlank()){
+            if (edtSenha?.text.toString() != edtConfirmarSenha?.text.toString()){
+                edtConfirmarSenha?.error = getString(R.string.senhas_nao_compativeis)
+            } else if(edtCpf_Cnpj?.text.isNullOrBlank()){
                 edtCpf_Cnpj?.error = getString(R.string.erro_cpf_cnpj)
             }else if(edtNome_RazaoSocial?.text.isNullOrBlank()){
                 edtNome_RazaoSocial?.error = getString(R.string.erro_nome_razao)
@@ -79,7 +79,7 @@ class CadastrarEmpresa : Fragment() {
             }else if (edtSenha?.text.isNullOrBlank()){
                 edtSenha?.error = getString(R.string.erro_senha)
             }else if(edtConfirmarSenha?.text.isNullOrBlank()){
-                edtConfirmarSenha?.error = getString(R.string.erro_confirmar_sneha)
+                edtConfirmarSenha?.error = getString(R.string.erro_confirmar_senha)
             }else {
 
                 val empresa = Empresa().apply {
@@ -95,7 +95,16 @@ class CadastrarEmpresa : Fragment() {
                     num_residencia = edtNum_Residencia?.text.toString()
                     senha = edtConfirmarSenha?.text.toString()
                 }
-                salvaDados(empresa)
+                try {
+                    salvaDados(empresa)
+                }catch (e:Exception){
+                    MaterialAlertDialogBuilder(context)
+                        .setTitle(getString(R.string.erro_cadastrar_empresa))
+                        .setMessage(e.message)
+                        .setNegativeButton("Ok", null)
+                        .show()
+                }
+
             }
         }
 
@@ -111,7 +120,7 @@ class CadastrarEmpresa : Fragment() {
                 count: Int
             ) {
                 if (edtCepC?.length == 8) {
-                    val callRetrofit = RetrofitInitializer().apiRetrofitService()
+                    val callRetrofit = CepInitializer().apiCep()
                         .getEnderecoByCEP(edtCepC.toString())
 
                     callRetrofit.enqueue(object : Callback<CEP> {
@@ -122,7 +131,6 @@ class CadastrarEmpresa : Fragment() {
                         override fun onResponse(call: Call<CEP>, response: Response<CEP>) {
                             response.let {
                                 val cepR: CEP? = it.body()
-
                                 edtCep?.setText(cepR?.cep.toString()).toString()
                                 edtBairro?.setText(cepR?.bairro.toString()).toString()
                                 edtCidade?.setText(cepR?.localidade.toString()).toString()
@@ -142,9 +150,10 @@ class CadastrarEmpresa : Fragment() {
 
         empresaViewModel.ret.observe(this@CadastrarEmpresa, Observer {
                 MaterialAlertDialogBuilder(context)
-                    .setTitle("Cadastrado com Sucesso")
-                    .setMessage("Empresa cadastrada com sucesso")
-                    .setPositiveButton("Ok", null)
+                    .setTitle(getString(R.string.cadastrado_com_sucesso))
+                    .setMessage(getString(R.string.empresa_cadastrada_com_sucesso))
+                    .setPositiveButton(getString(R.string.ok)
+                    ) { _, _ -> fragmentManager?.popBackStack() }
                     .show()
        })
 
@@ -152,6 +161,7 @@ class CadastrarEmpresa : Fragment() {
     }
 
     fun salvaDados(empresa: Empresa) {
-         empresaViewModel.insert(empresa)
+         empresaViewModel.insertServidor(empresa)
     }
+
 }
