@@ -2,10 +2,7 @@ package com.example.data.util
 
 import Util.DateTime
 import androidx.room.TypeConverter
-import com.example.data.entity.Cliente
-import com.example.data.entity.Empresa
-import com.example.data.entity.Produto
-import com.example.data.entity.StatusEnum
+import com.example.data.entity.*
 import com.google.gson.Gson
 import java.util.*
 
@@ -22,6 +19,20 @@ class Converter {
             null
         } else {
             Gson().toJson(empresa)
+        }
+    }
+
+    @TypeConverter
+    fun stringToCEP(value: String?): CEP? {
+        return if (value == null) null else Gson().fromJson(value,CEP::class.java)
+    }
+
+    @TypeConverter
+    fun CepToString(cep: CEP?): String? {
+        return if (cep == null) {
+            null
+        } else {
+            Gson().toJson(cep)
         }
     }
 

@@ -87,12 +87,13 @@ class CadastrarEmpresa : Fragment() {
                     nome = edtNome_RazaoSocial?.text.toString()
                     email = edtEmail?.text.toString()
                     telefone = edtTelefone?.text.toString()
-                    endereco = edtEndereco?.text.toString()
-                    cep = edtCep?.text.toString()
-                    cidade = edtCidade?.text.toString()
-                    bairro = edtBairro?.text.toString()
-                    estado = edtEstado?.text.toString()
-                    num_residencia = edtNum_Residencia?.text.toString()
+                    cep =CEP()
+                    cep?.cep = edtCep?.text.toString()
+                    cep?.logradouro = edtEndereco?.text.toString()
+                    cep?.bairro = edtBairro?.text.toString()
+                    cep?.localidade = edtCidade?.text.toString()
+                    cep?.uf = edtEstado?.text.toString()
+                    cep?.num_residencia = edtNum_Residencia?.text.toString()
                     senha = edtConfirmarSenha?.text.toString()
                 }
                 try {
@@ -161,7 +162,7 @@ class CadastrarEmpresa : Fragment() {
     }
 
     fun salvaDados(empresa: Empresa) {
-         empresaViewModel.insertServidor(empresa)
+         empresaViewModel.insert(empresa)
     }
 
 }
