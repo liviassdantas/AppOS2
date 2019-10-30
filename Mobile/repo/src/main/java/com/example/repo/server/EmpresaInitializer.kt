@@ -8,6 +8,7 @@ class EmpresaInitializer {
     fun init(){}
 
     val empresaRetro = Retrofit.Builder()
+<<<<<<< Updated upstream
         .baseUrl("http://192.168.0.68/AppOS/api/EmpresaApiController/Cadastrar/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
