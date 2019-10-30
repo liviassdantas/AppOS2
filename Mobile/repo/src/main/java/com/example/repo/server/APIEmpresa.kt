@@ -6,7 +6,7 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface APIEmpresa {
-    @POST("/empresa")
+    @POST("value")
     fun insertEmpresa(@Body empresa: Empresa): Call<Empresa>
 
 }

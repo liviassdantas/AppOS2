@@ -22,7 +22,7 @@ namespace AppOSWebApi.Models
     {
         public String Senha { get; set; }
         public DateTime Ultimo_Acesso { get; set; }
-        public String Nome { get; set; }
+        public String Usuario { get; set; }
         public String Email { get; set; }
     }
 

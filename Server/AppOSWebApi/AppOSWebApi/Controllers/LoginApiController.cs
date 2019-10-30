@@ -80,7 +80,7 @@ namespace AppOSWebApi.Controllers
             {
                 Expression<Func<Empresa, bool>> filter = x =>
                                                 x.CPFCNPJ.Equals(values.CPFCNPJ) &&
-                                                x.Login.Nome.Equals(values.NomeRazaoSocial) &&
+                                                x.Login.Usuario.Equals(values.NomeRazaoSocial) &&
                                                 x.Login.Email.Equals(values.Email);
 
 

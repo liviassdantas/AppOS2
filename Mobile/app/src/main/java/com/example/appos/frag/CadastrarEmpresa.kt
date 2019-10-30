@@ -14,6 +14,7 @@ import com.example.appos.R
 import com.example.appos.view_model.EmpresaView
 import com.example.data.entity.CEP
 import com.example.data.entity.Empresa
+import com.example.data.entity.Login
 import com.example.repo.server.CepInitializer
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -94,7 +95,8 @@ class CadastrarEmpresa : Fragment() {
                     cep?.localidade = edtCidade?.text.toString()
                     cep?.uf = edtEstado?.text.toString()
                     cep?.num_residencia = edtNum_Residencia?.text.toString()
-                    senha = edtConfirmarSenha?.text.toString()
+                    login = Login()
+                    login?.senha = edtSenha?.text.toString()
                 }
                 try {
                     salvaDados(empresa)
@@ -162,7 +164,7 @@ class CadastrarEmpresa : Fragment() {
     }
 
     fun salvaDados(empresa: Empresa) {
-         empresaViewModel.insert(empresa)
+         empresaViewModel.insertServidor(empresa)
     }
 
 }

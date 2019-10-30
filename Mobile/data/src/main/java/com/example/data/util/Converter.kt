@@ -23,6 +23,21 @@ class Converter {
     }
 
     @TypeConverter
+    fun stringToLogin(value: String?): Login? {
+        return if (value == null) null else Gson().fromJson(value,Login::class.java)
+    }
+
+    @TypeConverter
+    fun LoginToString(login: Login?): String? {
+        return if (login == null) {
+            null
+        } else {
+            Gson().toJson(login)
+        }
+    }
+
+
+    @TypeConverter
     fun stringToCEP(value: String?): CEP? {
         return if (value == null) null else Gson().fromJson(value,CEP::class.java)
     }
