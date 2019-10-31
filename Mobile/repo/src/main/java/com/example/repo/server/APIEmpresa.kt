@@ -7,7 +7,7 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface APIEmpresa {
-    @POST("/EmpresaApiController/Cadastrar")
+    @POST("EmpresaApiController/Cadastrar")
     fun insertEmpresa(@Body empresa: Empresa): Call<Empresa>
 
 }
