@@ -33,7 +33,7 @@ namespace AppOSWebApi.Controllers
                     return retorno;
                 }
 
-                Expression<Func<Empresa, bool>> filter = x => x.CPFCNPJ.Equals(cpf_cnpj) && x.Login.Senha.Equals(senha);
+                Expression<Func<Empresa, bool>> filter = x => x.CPF_CNPJ.Equals(cpf_cnpj) && x.Login.Senha.Equals(senha);
                 var empresa = new EmpresaDAO().FindFirstBywhere(filter);
 
                 if (empresa == null)
@@ -79,7 +79,7 @@ namespace AppOSWebApi.Controllers
             try
             {
                 Expression<Func<Empresa, bool>> filter = x =>
-                                                x.CPFCNPJ.Equals(values.CPFCNPJ) &&
+                                                x.CPF_CNPJ.Equals(values.CPFCNPJ) &&
                                                 x.Login.Usuario.Equals(values.NomeRazaoSocial) &&
                                                 x.Login.Email.Equals(values.Email);
 

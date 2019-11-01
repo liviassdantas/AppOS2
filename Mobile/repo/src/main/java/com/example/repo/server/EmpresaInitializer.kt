@@ -8,7 +8,7 @@ class EmpresaInitializer {
     fun init(){}
 
     val empresaRetro = Retrofit.Builder()
-        .baseUrl("http://192.168.0.68/AppOS/AppOSWebApi/api/")
+        .baseUrl("http://192.168.0.25/AppOS/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

@@ -44,6 +44,11 @@ class CadastrarEmpresa : Fragment() {
         ViewModelProviders.of(this@CadastrarEmpresa).get(EmpresaView::class.java)
     }
 
+
+    companion object {
+        const val CADASTRAR_EMPRESA = 101
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -66,29 +71,29 @@ class CadastrarEmpresa : Fragment() {
 
 //        edtCpf_Cnpj?.addTextChangedListener(Mask.mask("###.###.###-##", edtCpf_Cnpj!!))
 
-        btnCadastarEmpresa?.setOnClickListener{
-            if (edtSenha?.text.toString() != edtConfirmarSenha?.text.toString()){
+        btnCadastarEmpresa?.setOnClickListener {
+            if (edtSenha?.text.toString() != edtConfirmarSenha?.text.toString()) {
                 edtConfirmarSenha?.error = getString(R.string.senhas_nao_compativeis)
-            } else if(edtCpf_Cnpj?.text.isNullOrBlank()){
+            } else if (edtCpf_Cnpj?.text.isNullOrBlank()) {
                 edtCpf_Cnpj?.error = getString(R.string.erro_cpf_cnpj)
-            }else if(edtNome_RazaoSocial?.text.isNullOrBlank()){
+            } else if (edtNome_RazaoSocial?.text.isNullOrBlank()) {
                 edtNome_RazaoSocial?.error = getString(R.string.erro_nome_razao)
-            }else if (edtTelefone?.text.isNullOrBlank()&&edtEmail?.text.isNullOrBlank()){
+            } else if (edtTelefone?.text.isNullOrBlank() && edtEmail?.text.isNullOrBlank()) {
                 edtTelefone?.error = getString(R.string.erro_meio_contato)
-            }else if (edtCep?.text.isNullOrBlank()){
+            } else if (edtCep?.text.isNullOrBlank()) {
                 edtCep?.error = getString(R.string.erro_cep)
-            }else if (edtSenha?.text.isNullOrBlank()){
+            } else if (edtSenha?.text.isNullOrBlank()) {
                 edtSenha?.error = getString(R.string.erro_senha)
-            }else if(edtConfirmarSenha?.text.isNullOrBlank()){
+            } else if (edtConfirmarSenha?.text.isNullOrBlank()) {
                 edtConfirmarSenha?.error = getString(R.string.erro_confirmar_senha)
-            }else {
+            } else {
 
                 val empresa = Empresa().apply {
                     cpf_cnpj = edtCpf_Cnpj?.text.toString()
                     nome = edtNome_RazaoSocial?.text.toString()
                     email = edtEmail?.text.toString()
                     telefone = edtTelefone?.text.toString()
-                    cep =CEP()
+                    cep = CEP()
                     cep?.cep = edtCep?.text.toString()
                     cep?.logradouro = edtEndereco?.text.toString()
                     cep?.bairro = edtBairro?.text.toString()
@@ -100,7 +105,7 @@ class CadastrarEmpresa : Fragment() {
                 }
                 try {
                     salvaDados(empresa)
-                }catch (e:Exception){
+                } catch (e: Exception) {
                     MaterialAlertDialogBuilder(context)
                         .setTitle(getString(R.string.erro_cadastrar_empresa))
                         .setMessage(e.message)
@@ -151,20 +156,42 @@ class CadastrarEmpresa : Fragment() {
         })
 
 
-        empresaViewModel.ret.observe(this@CadastrarEmpresa, Observer {
-                MaterialAlertDialogBuilder(context)
-                    .setTitle(getString(R.string.cadastrado_com_sucesso))
-                    .setMessage(getString(R.string.empresa_cadastrada_com_sucesso))
-                    .setPositiveButton(getString(R.string.ok)
-                    ) { _, _ -> fragmentManager?.popBackStack() }
-                    .show()
-       })
+        empresaViewModel.empresaLiveData.observe(this@CadastrarEmpresa, Observer {
+            when (it.id) {
+                CADASTRAR_EMPRESA -> {
+                    if (it.exception != null) {
+                        MaterialAlertDialogBuilder(context)
+                            .setTitle(getString(R.string.erro_cadastro))
+                            .setMessage(it.exception?.message ?: getString(R.string.sem_conexao))
+                            .setPositiveButton(
+                                getString(R.string.ok)
+                            ) { _, _ -> fragmentManager?.popBackStack() }
+                            .show()
+                    }else if (it.mensagem != null){
+                        MaterialAlertDialogBuilder(context)
+                            .setTitle(getString(R.string.aviso_cadastro))
+                            .setMessage(it.mensagem?: getString(R.string.sem_conexao))
+                            .setPositiveButton(getString(R.string.ok)
+                            ) { _, _ -> fragmentManager?.popBackStack() }
+                            .show()
+                    }else{
+                        MaterialAlertDialogBuilder(context)
+                            .setTitle(getString(R.string.cadastrado_com_sucesso))
+                            .setMessage(getString(R.string.empresa_cadastrada_com_sucesso))
+                            .setPositiveButton(getString(R.string.ok)
+                            ) { _, _ -> fragmentManager?.popBackStack() }
+                            .show()
+                    }
+                }
+            }
+
+        })
 
         return view
     }
 
     fun salvaDados(empresa: Empresa) {
-         empresaViewModel.insertServidor(empresa)
+        empresaViewModel.insertServidor(CADASTRAR_EMPRESA,empresa)
     }
 
 }

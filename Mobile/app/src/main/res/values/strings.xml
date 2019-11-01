@@ -47,5 +47,7 @@
     <string name="empresa_cadastrada_com_sucesso">Empresa cadastrada com sucesso</string>
     <string name="confirmar_senha">Confirmar senha</string>
     <string name="senhas_nao_compativeis">As senhas não são compatíveis. Verifique as senhas e tente novamente.</string>
+    <string name="erro_cadastro">Erro ao Cadastrar</string>
+    <string name="aviso_cadastro">Aviso ao Cadastrar</string>
 
 </resources>

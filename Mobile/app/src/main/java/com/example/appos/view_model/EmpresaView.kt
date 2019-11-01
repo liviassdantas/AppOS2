@@ -6,17 +6,20 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.data.entity.Empresa
 import com.example.repo.repository.EmpresaRepo
+import com.example.repo.util.ResponseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 
 class EmpresaView(private val app: Application) : AndroidViewModel(app) {
-    val empresaLiveData = MutableLiveData<MutableList<Empresa>>()
-    val ret  = MutableLiveData<Long>()
-    val retorno = MutableLiveData<Boolean>()
+    private val retorno = MutableLiveData<ResponseViewModel<Any>>()
+    val empresaLiveData: LiveData<ResponseViewModel<Any>> = retorno
+//    val ret  = MutableLiveData<Long>()
+//    val retorno = MutableLiveData<Boolean>()
 
-    fun getAll() = GlobalScope.launch(Dispatchers.IO) {
+    /*fun getAll() = GlobalScope.launch(Dispatchers.IO) {
         val retorno = EmpresaRepo(app).getAllEmpresas()
         empresaLiveData.postValue(retorno.value)
     }
@@ -24,22 +27,29 @@ class EmpresaView(private val app: Application) : AndroidViewModel(app) {
     fun insert(empresa: Empresa) = GlobalScope.launch(Dispatchers.IO) {
         val id = EmpresaRepo(app).insert(empresa)
         ret.postValue(id)
+    }*/
+
+    fun insertServidor(request: Int, empresa: Empresa) = GlobalScope.launch(Dispatchers.Main) {
+
+        val ret = EmpresaRepo(app).insertServidor(empresa)
+        val dispo = ResponseViewModel<Any>()
+        dispo.id = request
+        dispo.exception = ret.body()?.exception
+        dispo.mensagem = ret.body()?.mensagem
+        dispo.objeto = ret.body()?.objeto
+
+        retorno.postValue(dispo)
+
     }
 
-    fun insertServidor(empresa: Empresa)= GlobalScope.launch(Dispatchers.Main){
-        val empresaPost = EmpresaRepo(app).insertServidor(empresa)
-        retorno.postValue(empresaPost)
-    }
-
-    fun delete(empresa: Empresa) = GlobalScope.launch(Dispatchers.IO) {
+    /*fun delete(empresa: Empresa) = GlobalScope.launch(Dispatchers.IO) {
         EmpresaRepo(app).delete(empresa)
     }
 
     fun getByCpfCnpj(cpf_cnpj: String) = GlobalScope.launch(Dispatchers.IO) {
             val retorno = EmpresaRepo(app).selectEmpresaByCpfCnpj(cpf_cnpj)
             empresaLiveData.postValue(mutableListOf(retorno))
-        }
-
+    }*/
 
 
 }

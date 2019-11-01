@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">repo</string>
+    <string name="sem_conexao">Sem conexão com o Servidor</string>
 </resources>
