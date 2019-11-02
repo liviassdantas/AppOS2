@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-#Sun Sep 08 16:44:02 BRT 2019
-base.0=C\:\\Users\\livia\\StudioProjects\\AppOS2\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
-=======
-#Wed Sep 11 13:37:53 BRT 2019
-base.0=C\:\\Users\\user\\AndroidStudioProjects\\AppOS2\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
->>>>>>> master
-path.0=classes.dex
-renamed.0=classes.dex
