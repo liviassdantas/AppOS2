@@ -2,39 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@id/activity_login_txtLogo"
-                android:layout_alignStart="@id/activity_login_txtLogo"
-                android:layout_marginStart="200dp"
-                android:layout_marginBottom="-150dp"
-                android:src="@drawable/ic_icone_appos" />
-
-        <TextView
                 android:id="@+id/activity_login_txtLogo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="163dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="60dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginTop="150dp"
-                android:fontFamily="@font/junction_regular"
-                android:text="@string/appos_logo"
-                android:textColor="@color/preto"
-                android:textSize="75sp" />
+                android:layout_marginTop="70dp"
+                android:src="@drawable/ic_appos_preto_vetor" />
 
         <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:id="@+id/inputEdtLogin"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/activity_login_txtLogo"
@@ -42,7 +29,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="80dp"
                 android:layout_marginEnd="80dp"
-                android:layout_marginBottom="-100dp">
+                android:layout_marginBottom="-90dp">
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/activity_login_edtLogin"
@@ -54,8 +41,8 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:id="@+id/inputSenha"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/inputEdtLogin"
@@ -74,35 +61,20 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:id="@+id/activity_login_btnEntrar"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/inputSenha"
-                android:layout_alignParentEnd="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
                 android:layout_marginStart="140dp"
                 android:layout_marginEnd="140dp"
                 android:layout_marginBottom="-70dp"
-                android:text="@string/entrar"
                 android:background="@color/branco"
+                android:text="@string/entrar"
                 android:textColor="@color/laranjaEscuro">
         </com.google.android.material.button.MaterialButton>
-
-        <com.google.android.material.button.MaterialButton
-                android:id="@+id/activity_login_btnEsqueciSenha"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
-                android:layout_marginEnd="160dp"
-                android:layout_alignBottom="@id/activity_login_btnEntrar"
-                android:layout_marginBottom="-50dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:background="@color/branco"
-                android:text="@string/esqueci_senha"
-                android:textColor="@color/laranjaPrincipal" />
 
         <com.google.android.material.button.MaterialButton
                 android:id="@+id/activity_login_btnSemCadastro"
@@ -110,11 +82,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/activity_login_btnEntrar"
-                android:layout_marginStart="190dp"
-                android:layout_marginEnd="35dp"
-                android:layout_marginBottom="-50dp"
-                android:layout_alignParentEnd="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="-50dp"
                 android:background="@color/branco"
                 android:text="@string/sem_cadastro"
                 android:textColor="@color/laranjaPrincipal" />
