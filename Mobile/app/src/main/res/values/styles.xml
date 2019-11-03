@@ -17,16 +17,8 @@
 
     <style name="AppOSTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <!--    <style name="AppOSTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
-    <!--        <item name="boxStrokeColor">@color/laranjaPrincipal</item>-->
-    <!--        <item name="boxStrokeWidth">2dp</item>-->
-    <!--        <item name="hintTextColor">@color/laranjaPrincipal</item>-->
-    <!--        <item name="counterTextAppearance">@color/laranjaPrincipal</item>-->
-    <!--        <item name="hintTextAppearance">@color/laranjaPrincipal</item>-->
-    <!--        <item name="counterOverflowTextAppearance">@color/laranjaPrincipal</item>-->
-    <!--        <item name="endIconTint">@color/laranjaPrincipal</item>-->
-    <!--        <item name="counterTextColor">@color/laranjaPrincipal</item>-->
-    <!--        <item name="counterOverflowTextColor">@color/laranjaPrincipal</item>-->
-    <!--    </style>-->
+    <style name="ThemeOverlay.MaterialComponents.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColor">@color/branco</item>
 
+    </style>
 </resources>

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-            android:icon="@drawable/ic_done_outline_24px"
-            android:title="teste1"
-            />
+            android:id="@+id/menu_sair"
+            android:icon="@drawable/ic_cancel"
+            android:title="@string/sair" />
+    <item
+            android:id="@+id/menu_relatar_problema"
+            android:icon="@drawable/ic_exclamation_mark"
+            android:title="@string/relatar_um_problema" />
 
 </menu>

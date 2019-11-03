@@ -50,4 +50,11 @@
     <string name="erro_cadastro">Erro ao Cadastrar</string>
     <string name="aviso_cadastro">Aviso ao Cadastrar</string>
 
+    <string name="abrir_drawer">Abrir</string>
+    <string name="fechar_drawer">Fechar</string>
+    <string name="sair">Sair</string>
+    <string name="relatar_um_problema">Relatar um problema</string>
+    <string name="ainda_nao_concluido">Recurso em desenvolvimento</string>
+    <string name="desenvolvendo_recurso">No momento esse recurso não se encontra disponível. Assim que for finalizado, será disponibilizado como uma atualização da loja!</string> />
+
 </resources>

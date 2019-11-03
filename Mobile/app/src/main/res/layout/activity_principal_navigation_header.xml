@@ -11,31 +11,11 @@
         android:padding="16dp"
         android:theme="@style/Theme.MaterialComponents.Light">
 
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        <ImageView
-                android:layout_width="46dp"
-                android:layout_height="wrap_content"
-                android:layout_above="@id/activity_login_txtLogo"
-                android:layout_alignStart="@id/activity_login_txtLogo"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="150dp"
-                android:layout_marginBottom="-85dp"
-                android:src="@drawable/ic_icone_appos" />
-
-        <TextView
-                android:id="@+id/activity_login_txtLogo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="58dp"
-                android:layout_marginBottom="13dp"
-                android:fontFamily="@font/junction_regular"
-                android:text="@string/appos_logo"
-                android:textColor="@color/branco"
-                android:textSize="50sp" />
-    </RelativeLayout>
+    <ImageView
+            android:layout_width="203dp"
+            android:layout_height="86dp"
+            android:layout_marginStart="-30dp"
+            android:layout_marginTop="60dp"
+            android:contentDescription="@string/appos_logo"
+            android:src="@drawable/ic_appos_branco" />
 </LinearLayout>
