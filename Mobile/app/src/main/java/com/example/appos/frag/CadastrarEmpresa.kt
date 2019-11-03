@@ -89,17 +89,17 @@ class CadastrarEmpresa : Fragment() {
             } else {
 
                 val empresa = Empresa().apply {
-                    cpf_cnpj = edtCpf_Cnpj?.text.toString()
+                    cpfcnpj = edtCpf_Cnpj?.text.toString()
                     nome = edtNome_RazaoSocial?.text.toString()
                     email = edtEmail?.text.toString()
                     telefone = edtTelefone?.text.toString()
-                    cep = CEP()
-                    cep?.cep = edtCep?.text.toString()
-                    cep?.logradouro = edtEndereco?.text.toString()
-                    cep?.bairro = edtBairro?.text.toString()
-                    cep?.localidade = edtCidade?.text.toString()
-                    cep?.uf = edtEstado?.text.toString()
-                    cep?.num_residencia = edtNum_Residencia?.text.toString()
+                    endereco = CEP()
+                    endereco?.cep = edtCep?.text.toString()
+                    endereco?.logradouro = edtEndereco?.text.toString()
+                    endereco?.bairro = edtBairro?.text.toString()
+                    endereco?.localidade = edtCidade?.text.toString()
+                    endereco?.uf = edtEstado?.text.toString()
+                    endereco?.num_residencia = edtNum_Residencia?.text.toString()
                     login = Login()
                     login?.senha = edtSenha?.text.toString()
                 }
@@ -159,23 +159,21 @@ class CadastrarEmpresa : Fragment() {
         empresaViewModel.empresaLiveData.observe(this@CadastrarEmpresa, Observer {
             when (it.id) {
                 CADASTRAR_EMPRESA -> {
-                    if (it.exception != null) {
-                        MaterialAlertDialogBuilder(context)
+                    when {
+                        it.exception != null -> MaterialAlertDialogBuilder(context)
                             .setTitle(getString(R.string.erro_cadastro))
                             .setMessage(it.exception?.message ?: getString(R.string.sem_conexao))
                             .setPositiveButton(
                                 getString(R.string.ok)
                             ) { _, _ -> fragmentManager?.popBackStack() }
                             .show()
-                    }else if (it.mensagem != null){
-                        MaterialAlertDialogBuilder(context)
+                        it.mensagem != null -> MaterialAlertDialogBuilder(context)
                             .setTitle(getString(R.string.aviso_cadastro))
                             .setMessage(it.mensagem?: getString(R.string.sem_conexao))
                             .setPositiveButton(getString(R.string.ok)
                             ) { _, _ -> fragmentManager?.popBackStack() }
                             .show()
-                    }else{
-                        MaterialAlertDialogBuilder(context)
+                        else -> MaterialAlertDialogBuilder(context)
                             .setTitle(getString(R.string.cadastrado_com_sucesso))
                             .setMessage(getString(R.string.empresa_cadastrada_com_sucesso))
                             .setPositiveButton(getString(R.string.ok)
@@ -194,4 +192,8 @@ class CadastrarEmpresa : Fragment() {
         empresaViewModel.insertServidor(CADASTRAR_EMPRESA,empresa)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        empresaViewModel.empresaLiveData.removeObservers(this@CadastrarEmpresa)
+    }
 }

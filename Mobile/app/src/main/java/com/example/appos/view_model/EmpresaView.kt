@@ -14,27 +14,15 @@ import java.lang.Exception
 
 
 class EmpresaView(private val app: Application) : AndroidViewModel(app) {
-    private val retorno = MutableLiveData<ResponseViewModel<Any>>()
+    var retorno = MutableLiveData<ResponseViewModel<Any>>()
     val empresaLiveData: LiveData<ResponseViewModel<Any>> = retorno
-//    val ret  = MutableLiveData<Long>()
-//    val retorno = MutableLiveData<Boolean>()
-
-    /*fun getAll() = GlobalScope.launch(Dispatchers.IO) {
-        val retorno = EmpresaRepo(app).getAllEmpresas()
-        empresaLiveData.postValue(retorno.value)
-    }
-
-    fun insert(empresa: Empresa) = GlobalScope.launch(Dispatchers.IO) {
-        val id = EmpresaRepo(app).insert(empresa)
-        ret.postValue(id)
-    }*/
 
     fun insertServidor(request: Int, empresa: Empresa) = GlobalScope.launch(Dispatchers.Main) {
 
         val ret = EmpresaRepo(app).insertServidor(empresa)
         val dispo = ResponseViewModel<Any>()
         dispo.id = request
-        dispo.exception = ret.body()?.exception
+        dispo.exception = ret.body()?.exception?.let { Exception(it)}
         dispo.mensagem = ret.body()?.mensagem
         dispo.objeto = ret.body()?.objeto
 
@@ -42,14 +30,18 @@ class EmpresaView(private val app: Application) : AndroidViewModel(app) {
 
     }
 
-    /*fun delete(empresa: Empresa) = GlobalScope.launch(Dispatchers.IO) {
-        EmpresaRepo(app).delete(empresa)
+    fun getLogin (request: Int, cpf_cnpj: String, senha: String) = GlobalScope.launch(Dispatchers.Main) {
+        val ret = EmpresaRepo(app).getLogin(cpf_cnpj, senha)
+        val dispo = ResponseViewModel<Any>()
+        dispo.id = request
+        dispo.exception = ret.body()?.exception?.let { Exception(it)}
+        dispo.mensagem = ret.body()?.mensagem
+        dispo.objeto = ret.body()?.objeto
+
+        retorno.postValue(dispo)
+
     }
 
-    fun getByCpfCnpj(cpf_cnpj: String) = GlobalScope.launch(Dispatchers.IO) {
-            val retorno = EmpresaRepo(app).selectEmpresaByCpfCnpj(cpf_cnpj)
-            empresaLiveData.postValue(mutableListOf(retorno))
-    }*/
 
 
 }

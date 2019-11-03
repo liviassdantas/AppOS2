@@ -28,19 +28,19 @@ namespace AppOSWebApi.Persistence.DAO
 
         public async Task Update(T obj)
         {
-            try
-            {
-                IMongoDatabase banco = DataSource.GetConnection();
-                IMongoCollection<T> collection = banco.GetCollection<T>(obj.GetType().Name);
+            //try
+            //{
+            IMongoDatabase banco = DataSource.GetConnection();
+            IMongoCollection<T> collection = banco.GetCollection<T>(obj.GetType().Name);
 
-                var consulta = Builders<T>.Filter.Eq("id", obj.id);
-                await collection.ReplaceOneAsync(consulta, obj);
+            var consulta = Builders<T>.Filter.Eq("id", obj._id);
+            await collection.ReplaceOneAsync(consulta, obj);
 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro: " + ex.ToString());
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //throw new Exception("Erro: " + ex.ToString());
+            //}
         }
 
         public async Task Delete(T obj)
@@ -49,7 +49,7 @@ namespace AppOSWebApi.Persistence.DAO
             {
                 IMongoDatabase banco = DataSource.GetConnection();
                 IMongoCollection<T> collection = banco.GetCollection<T>(obj.GetType().Name);
-                
+
                 Expression<Func<T, bool>> filter = x => x._id == obj._id;
                 await collection.DeleteOneAsync<T>(filter);
             }

@@ -60,7 +60,7 @@
                     android:textAlignment="center" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <Component.CircularProgressButton.customViews.RobinCircularProgressButton
                 android:id="@+id/activity_login_btnEntrar"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
@@ -73,8 +73,9 @@
                 android:layout_marginBottom="-70dp"
                 android:background="@color/branco"
                 android:text="@string/entrar"
-                android:textColor="@color/laranjaEscuro">
-        </com.google.android.material.button.MaterialButton>
+                android:textColor="@color/laranjaEscuro"
+                app:spinning_bar_color="@color/laranjaEscuro">
+        </Component.CircularProgressButton.customViews.RobinCircularProgressButton>
 
         <com.google.android.material.button.MaterialButton
                 android:id="@+id/activity_login_btnSemCadastro"

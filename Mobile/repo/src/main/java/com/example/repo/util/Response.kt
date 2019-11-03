@@ -13,6 +13,6 @@ class ResponseViewModel<T> {
 class ResponseServidor<T> {
     var result:Boolean? = null
     var mensagem:String?= null
-    var exception:Throwable? = null
+    var exception:String? = null
     var objeto : T? = null
 }

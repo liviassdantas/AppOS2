@@ -33,7 +33,7 @@ namespace AppOSWebApi.Controllers
                     return retorno;
                 }
 
-                Expression<Func<Empresa, bool>> filter = x => x.CPF_CNPJ.Equals(cpf_cnpj) && x.Login.Senha.Equals(senha);
+                Expression<Func<Empresa, bool>> filter = x => x.CPFCNPJ.Equals(cpf_cnpj) && x.Login.Senha.Equals(senha);
                 var empresa = new EmpresaDAO().FindFirstBywhere(filter);
 
                 if (empresa == null)
@@ -49,7 +49,7 @@ namespace AppOSWebApi.Controllers
 
                     retorno.Result = true;
                     retorno.Objeto = empresa;
-                    retorno.Mensagem = "Logado com Sucesso.";
+                    //retorno.Mensagem = "Logado com Sucesso.";
 
 
                     await new EmpresaDAO().Update(empresa);
@@ -60,7 +60,9 @@ namespace AppOSWebApi.Controllers
             catch (Exception ex)
             {
                 retorno.Result = false;
-                retorno.Exception = ex.ToString();
+                retorno.Objeto = null;
+                retorno.Mensagem = null;
+                retorno.Exception = ex.Message;
             }
 
             return retorno;
@@ -79,7 +81,7 @@ namespace AppOSWebApi.Controllers
             try
             {
                 Expression<Func<Empresa, bool>> filter = x =>
-                                                x.CPF_CNPJ.Equals(values.CPFCNPJ) &&
+                                                x.CPFCNPJ.Equals(values.CPFCNPJ) &&
                                                 x.Login.Usuario.Equals(values.NomeRazaoSocial) &&
                                                 x.Login.Email.Equals(values.Email);
 

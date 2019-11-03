@@ -8,7 +8,7 @@ namespace AppOSWebApi.Models
 {
     public class Empresa: BaseModel
     {
-        public String CPF_CNPJ { get; set; }
+        public String CPFCNPJ { get; set; }
         public String Nome { get; set; }
         public EnderecoModels Endereco { get; set; }
         public String Telefone { get; set; }

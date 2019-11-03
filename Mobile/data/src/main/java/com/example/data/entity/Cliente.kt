@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Cliente")
 data class Cliente(
-    @ColumnInfo(name = "cpf_cnpj") var cpf_cnpj: String? = null,
+    @ColumnInfo(name = "cpfcnpj") var cpf_cnpj: String? = null,
     @ColumnInfo(name = "nome")var nome: String? = null,
     @ColumnInfo(name = "telefone")var telefone: String? = null,
     @ColumnInfo(name = "cep")var cep: String? = null,

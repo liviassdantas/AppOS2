@@ -15,7 +15,7 @@ interface EmpresaDao {
     @Delete
     fun delete(empresa: Empresa)
 
-    @Query("SELECT * FROM Empresa WHERE cpf_cnpj = :cpf_cnpj ")
+    @Query("SELECT * FROM Empresa WHERE cpfcnpj = :cpf_cnpj ")
     fun selectEmpresaBycpfCnpj(cpf_cnpj: String): Empresa
 
     @Query("SELECT * FROM Empresa")

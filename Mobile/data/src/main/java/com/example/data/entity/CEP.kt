@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "CEP")
 data class CEP(
-    @ColumnInfo(name = "cep") var cep: String? = "",
+    @ColumnInfo(name = "endereco") var cep: String? = "",
     @ColumnInfo(name = "logradouro")var logradouro: String? = "",
     @ColumnInfo(name = "uf")var uf: String? = "",
     @ColumnInfo(name = "localidade")var localidade: String? = "",
