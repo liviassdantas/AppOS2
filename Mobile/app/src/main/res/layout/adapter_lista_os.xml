@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
+<com.google.android.material.circularreveal.cardview.CircularRevealCardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +7,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@color/branco"
+        app:cardBackgroundColor="@color/branco"
+        app:cardForegroundColor=""
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/cinza_claro"
         android:minHeight="180dp">
 
 
@@ -22,8 +25,9 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="25dp"
                     android:text="@string/tipo_de_servico"
+                    android:textColor="@color/preto"
                     android:textSize="30sp"
-                    android:textStyle="bold"
+
                     />
 
             <TextView
@@ -35,6 +39,7 @@
                     android:layout_marginBottom="-40dp"
                     android:layout_alignStart="@id/adapter_lista_os_txtTipoServico"
                     android:text="@string/preencher_numos"
+                    android:textColor="@color/cinza"
                     android:textSize="20sp" />
 
             <TextView
@@ -46,6 +51,7 @@
                     android:layout_alignStart="@id/adapter_lista_os_txtNumOS"
                     android:layout_marginBottom="0dp"
                     android:text="@string/atualizar"
+                    android:textColor="@color/cinza"
                     android:textSize="20sp" />
 
             <TextView
@@ -57,7 +63,8 @@
                     android:layout_alignStart="@id/adapter_lista_os_btnAtualizar"
                     android:layout_marginStart="120dp"
                     android:text="@string/contatar_cliente"
+                    android:textColor="@color/cinza"
                     android:textSize="20sp" />
         </RelativeLayout>
 
-</com.google.android.material.card.MaterialCardView>
+</com.google.android.material.circularreveal.cardview.CircularRevealCardView>
