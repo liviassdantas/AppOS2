@@ -88,7 +88,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="-50dp"
                 android:background="@color/branco"
-                android:text="@string/sem_cadastro"
+                android:text="@string/cadastrar_empresa"
                 android:textColor="@color/laranjaPrincipal" />
 
     </RelativeLayout>

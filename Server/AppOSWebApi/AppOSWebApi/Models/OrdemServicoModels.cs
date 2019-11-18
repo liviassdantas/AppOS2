@@ -12,7 +12,7 @@ namespace AppOSWebApi.Models
         public Int64 Num_OS { get; set; }
         public ProdutosModels Produto { get; set; }
         public Empresa Empresa { get; set; }
-       
+        public ClienteModels ClienteResp { get; set; }
         public DateTime Data_Agendamento { get; set; }
         public String Descricao_Problema { get; set; }
         public String Observacao_Produto { get; set; }
@@ -35,6 +35,7 @@ namespace AppOSWebApi.Models
         public String Tecnico_Resp { get; set; }
         public int status { get; set; }
         public DateTime Data_Agendamento { get; set; }
+        public ClienteModels ClienteResp { get; set; }
     }
 
 

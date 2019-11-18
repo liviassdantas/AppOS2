@@ -12,7 +12,7 @@ import com.example.data.util.Converter
 @Database(entities = [Cliente::class,
     Empresa::class,
     OS::class,
-    Produto::class], version = 1)
+    Produto::class], version = 2)
 abstract class Database : RoomDatabase(){
     abstract fun empresaDao(): EmpresaDao
     abstract fun osDao(): OSDao

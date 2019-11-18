@@ -14,7 +14,7 @@
     </style>
 
     <style name="AppOSFloatButton" parent="Widget.MaterialComponents.FloatingActionButton">
-        <item name="backgroundTint">@color/laranjaEscuro</item>
+        <item name="backgroundTint">@color/laranjaPrincipal</item>
     </style>
 
     <style name="AppOSTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

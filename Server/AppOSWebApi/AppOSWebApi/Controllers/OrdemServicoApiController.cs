@@ -15,6 +15,37 @@ namespace AppOSWebApi.Controllers
     {
 
 
+
+
+        [HttpGet]
+        [Route("api/OrdemServicoApiController/GetCliente")]
+        public async Task<PostApiResponse<ClienteModels>> GetCliente(String cpf_cnpj) {
+            var retorno = new PostApiResponse<ClienteModels>();
+            try
+            {
+                Expression<Func<OrdemServico, bool>> filter = x => x.ClienteResp.CPF_CNPJ == cpf_cnpj;
+                var cliente = new Ordem_ServicoDAO().FindFirstBywhere(filter);
+
+                if (cliente == null)
+                {
+                    retorno.Result = false;
+                    retorno.Mensagem = "Cliente não Cadastrado";
+                }
+                else
+                {
+                    retorno.Result = true;
+                    retorno.Mensagem = "Cliente localizado";
+                    retorno.Objeto = cliente.ClienteResp;
+                }
+                
+            }
+            catch (Exception ex) {
+                retorno.Result = false;
+                retorno.Exception = ex.Message;
+            }
+            return retorno;
+        }
+
         [HttpPost]
         [Route("api/OrdemServicoApiController/Cadastrar")]
         public async Task<PostApiResponse<bool>> Cadastrar(OrdemServicoCadastro values)
@@ -29,6 +60,7 @@ namespace AppOSWebApi.Controllers
                     retorno.Result = false;
                     retorno.Mensagem = "Numero da Ordem de Serviço não pode ser zero.";
                 }
+                
                 else
                 {
 
@@ -48,10 +80,10 @@ namespace AppOSWebApi.Controllers
                     else
                     {
 
-
                         var ordem_servico = new OrdemServico
                         {
                             Num_OS = values.NumOS,
+                            ClienteResp = values.ClienteResp,
                             Empresa = empresa,
                             Data_Agendamento = values.Data_Agendamento,
                             Data_Modificacao = DateTime.Now,
@@ -102,7 +134,7 @@ namespace AppOSWebApi.Controllers
                 }
                 else
                 {
-                    Expression<Func<OrdemServico, bool>> filter = x => x.Num_OS == Num_OS && x.Empresa.CPFCNPJ == CPFCNPJ ||x.Num_OS == Num_OS && x.Produto.ClienteResp.CPF_CNPJ == CPFCNPJ;
+                    Expression<Func<OrdemServico, bool>> filter = x => x.Num_OS == Num_OS && x.Empresa.CPFCNPJ == CPFCNPJ ||x.Num_OS == Num_OS && x.ClienteResp.CPF_CNPJ == CPFCNPJ;
                     var ordem = new Ordem_ServicoDAO().FindFirstBywhere(filter);
                     if (ordem == null)
                     {

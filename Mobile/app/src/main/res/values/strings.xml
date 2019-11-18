@@ -6,7 +6,9 @@
     <string name="senha">Senha</string>
     <string name="ok">OK</string>
     <string name="esqueci_senha">lembrar senha</string>
-    <string name="sem_cadastro">Cadastrar Empresa</string>
+    <string name="cadastrar">Cadastrar</string>
+
+
 
 
     <string name="cadastrar_empresa">Cadastrar Empresa</string>
@@ -49,6 +51,7 @@
     <string name="senhas_nao_compativeis">As senhas não são compatíveis. Verifique as senhas e tente novamente.</string>
     <string name="erro_cadastro">Erro ao Cadastrar</string>
     <string name="aviso_cadastro">Aviso ao Cadastrar</string>
+    <string name= "cadastrar_ordem">Ordem de Serviço </string>
 
     <string name="abrir_drawer">Abrir</string>
     <string name="fechar_drawer">Fechar</string>

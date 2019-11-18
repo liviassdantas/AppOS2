@@ -18,8 +18,7 @@ data class Cliente(
     @ColumnInfo(name = "estado")var estado: String? = null,
     @ColumnInfo(name = "cidade")var cidade: String? = null,
     @ColumnInfo(name = "bairro")var bairro: String? = null,
-    @ColumnInfo(name = "num_residencia")var num_residencia: String? = null,
-    @ColumnInfo(name = "senha")var senha: String? = null
+    @ColumnInfo(name = "num_residencia")var num_residencia: String? = null
 ){
     @PrimaryKey(autoGenerate = true) var idCliente : Int? =null
 }

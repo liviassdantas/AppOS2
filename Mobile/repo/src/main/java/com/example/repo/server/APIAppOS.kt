@@ -1,6 +1,7 @@
 package com.example.repo.server
 
 import com.example.data.entity.Empresa
+import com.example.data.entity.OS
 import com.example.repo.util.ResponseServidor
 import com.example.repo.util.ResponseViewModel
 import okhttp3.RequestBody
@@ -16,6 +17,11 @@ interface APIAppOS {
     @GET("api/LoginApiController/Entrar")
     fun getLogin(@Query("cpf_cnpj")cpf_cnpj: String,
                  @Query("senha")senha: String):Call<ResponseServidor<Empresa>>
+
+    @POST("api/OrdemServicoApiController/Cadastrar")
+    fun insertOS(@Body requestBody: RequestBody): Call<ResponseServidor<Boolean>>
+
+
 }
 
 

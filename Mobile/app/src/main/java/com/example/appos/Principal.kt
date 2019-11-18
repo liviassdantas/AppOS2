@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.appos.frag.CadastrarEmpresa
+import com.example.appos.frag.FragListaOS
 import com.example.appos.util.Prefs
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
@@ -36,6 +38,10 @@ class Principal : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         )
         drawerlayout.addDrawerListener(toogle)
         toogle.syncState()
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container_fragment_principal, FragListaOS(), "ListaOS")
+            .commit()
 
         nvgview.setNavigationItemSelectedListener(this)
     }

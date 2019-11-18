@@ -4,11 +4,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         style="@style/Widget.MaterialComponents.CardView"
+        android:id="@+id/adapter_lista_os_cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         app:cardBackgroundColor="@color/branco"
-        app:cardForegroundColor=""
         app:strokeWidth="1dp"
         app:strokeColor="@color/cinza_claro"
         android:minHeight="180dp">
@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/adapter_lista_os_txtTipoServico"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
 
                     />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/adapter_lista_os_txtNumOS"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
                     android:textColor="@color/cinza"
                     android:textSize="20sp" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/adapter_lista_os_btnAtualizar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -51,10 +51,10 @@
                     android:layout_alignStart="@id/adapter_lista_os_txtNumOS"
                     android:layout_marginBottom="0dp"
                     android:text="@string/atualizar"
-                    android:textColor="@color/cinza"
+                    android:textColor="@color/laranjaPrincipal"
                     android:textSize="20sp" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/adapter_lista_os_btnContatarCliente"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                     android:layout_alignStart="@id/adapter_lista_os_btnAtualizar"
                     android:layout_marginStart="120dp"
                     android:text="@string/contatar_cliente"
-                    android:textColor="@color/cinza"
+                    android:textColor="@color/laranjaPrincipal"
                     android:textSize="20sp" />
         </RelativeLayout>
 

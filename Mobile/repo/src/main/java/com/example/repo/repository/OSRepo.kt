@@ -1,22 +1,18 @@
 package com.example.repo.repository
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.LiveData
 import com.example.data.dao.OSDao
 import com.example.data.database.Database
 import com.example.data.entity.OS
+import com.example.repo.server.Remote
+import com.example.repo.util.ResponseServidor
+import retrofit2.Response
 
-class OSRepo(application: Application) {
-    private val osDao: OSDao
-    private val osLiveData: LiveData<MutableList<OS>>
+class OSRepo(private val context: Context) {
 
-    init {
-        val database = Database.getInstance(application)
-        osDao = database!!.osDao()
-        osLiveData = osDao.getAll() //TODO trocar para a chamada do servidor depois
-    }
-
-    fun getAllOrdemServico(empresa: String): LiveData<MutableList<OS>>{
-        return osDao.getAllOrdemServico(empresa)
+    suspend fun insertServidorOS(os: OS): Response<ResponseServidor<Boolean>> {
+        return Remote().insertOS(os)
     }
 }
