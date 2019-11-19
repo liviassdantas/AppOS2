@@ -7,7 +7,7 @@ namespace AppOSWebApi.Models
 {
     public class ClienteModels
     {
-        public String CPF_CNPJ { get; set; }
+        public String cpf_cnpj { get; set; }
         public String Nome { get; set; }
         public DateTime Data_Nasc { get; set; }
         public EnderecoModels Endereco { get; set; }

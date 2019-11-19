@@ -13,8 +13,9 @@ data class OS(
     @ColumnInfo(name= "cpf_cnpj")var cpfCnpj: String? = null,
     @ColumnInfo(name = "data_agendamento")var data_agendamento: DateTime? = null,
     @ColumnInfo(name = "descricao_problema")var descricao_problema: String? = null,
-    @ColumnInfo(name = "observacao_produto")var observacao_produto: String? = null,
-    @ColumnInfo(name = "valor_servico")var valor_serv: Float? = null,
+   /* @ColumnInfo(name = "observacao_produto")var observacao_produto: String? = null,
+    @ColumnInfo(name = "valor_servico")var valor_serv: Float? = null,*/
+    @ColumnInfo(name = "tecnico_resp")var tecnicoResp:String? = null,
     @ColumnInfo(name = "status_os")var status_os: StatusEnum? = null
 ){
     @PrimaryKey(autoGenerate = true) var idOS : Int? =null

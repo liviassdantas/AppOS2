@@ -1,5 +1,6 @@
 package com.example.repo.server
 
+import com.example.data.entity.Cliente
 import com.example.data.entity.Empresa
 import com.example.data.entity.OS
 import com.example.repo.util.ResponseServidor
@@ -20,6 +21,10 @@ interface APIAppOS {
 
     @POST("api/OrdemServicoApiController/Cadastrar")
     fun insertOS(@Body requestBody: RequestBody): Call<ResponseServidor<Boolean>>
+
+    @GET("api/OrdemServicoApiController/GetCliente")
+    fun getCliente(@Query("cpf_cnpj") cpf_cnpj: String): Call<ResponseServidor<Cliente>>
+
 
 
 }

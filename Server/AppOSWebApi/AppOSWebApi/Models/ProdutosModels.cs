@@ -8,7 +8,7 @@ namespace AppOSWebApi.Models
     public class ProdutosModels
     {
         public String Descricao { get; set; }
-        public String Observacao { get; set; }
+        //public String Observacao { get; set; }
         
     }
 }

@@ -23,7 +23,7 @@ namespace AppOSWebApi.Controllers
             var retorno = new PostApiResponse<ClienteModels>();
             try
             {
-                Expression<Func<OrdemServico, bool>> filter = x => x.ClienteResp.CPF_CNPJ == cpf_cnpj;
+                Expression<Func<OrdemServico, bool>> filter = x => x.ClienteResp.cpf_cnpj == cpf_cnpj;
                 var cliente = new Ordem_ServicoDAO().FindFirstBywhere(filter);
 
                 if (cliente == null)
@@ -65,7 +65,7 @@ namespace AppOSWebApi.Controllers
                 {
 
 
-                    Expression<Func<Empresa, bool>> filter = x => x.CPFCNPJ == values.CPFCNPJ_Empresa;
+                    Expression<Func<Empresa, bool>> filter = x => x.CPFCNPJ == values.cpfCnpj;
                     var empresa = new EmpresaDAO().FindFirstBywhere(filter);
 
 
@@ -83,16 +83,16 @@ namespace AppOSWebApi.Controllers
                         var ordem_servico = new OrdemServico
                         {
                             Num_OS = values.NumOS,
-                            ClienteResp = values.ClienteResp,
+                            ClienteResp = values.cliente_responsavel,
                             Empresa = empresa,
                             Data_Agendamento = values.Data_Agendamento,
                             Data_Modificacao = DateTime.Now,
                             Descricao_Problema = values.Descricao_problema,
                             Observacao_Produto = values.Observacao_produto,
                             Produto = values.Produto,
-                            Tecnico_Resp = values.Tecnico_Resp,
+                            Tecnico_Resp = values.tecnicoResp,
                             Valor_Servico = values.Valor_Servico,
-                            Status = values.status,
+                            Status = values.status_os,
 
                         };
                         await new Ordem_ServicoDAO().Insert(ordem_servico);
@@ -134,7 +134,7 @@ namespace AppOSWebApi.Controllers
                 }
                 else
                 {
-                    Expression<Func<OrdemServico, bool>> filter = x => x.Num_OS == Num_OS && x.Empresa.CPFCNPJ == CPFCNPJ ||x.Num_OS == Num_OS && x.ClienteResp.CPF_CNPJ == CPFCNPJ;
+                    Expression<Func<OrdemServico, bool>> filter = x => x.Num_OS == Num_OS && x.Empresa.CPFCNPJ == CPFCNPJ ||x.Num_OS == Num_OS && x.ClienteResp.cpf_cnpj == CPFCNPJ;
                     var ordem = new Ordem_ServicoDAO().FindFirstBywhere(filter);
                     if (ordem == null)
                     {

@@ -92,7 +92,6 @@ class CadastrarClienteOS : Fragment() {
                         else -> {
                             val cliente = it.objeto as Cliente?
                             if (cliente != null) {
-
                                 inserirOrdemServico(cliente)
 
                             } else {
@@ -228,10 +227,13 @@ class CadastrarClienteOS : Fragment() {
     private fun getOrdem(cliente: Cliente): OS {
         return OS().apply {
             num_os = edtNumOs?.text.toString().toInt()
-            cpfCnpj = context?.let { Prefs(it).getUsuario()?.cpfcnpj }
             cliente_responsavel = cliente
+            produto = Produto().apply{
+                descricao = edtNomeProdServico?.text.toString()
+            }
+            cpfCnpj = context?.let { Prefs(it).getUsuario()?.cpfcnpj }
             data_agendamento = DateTime(DateTime().getData())
-            produto = Produto()
+            descricao_problema = edtDescricaoServico?.text.toString()
             status_os = StatusEnum.Aguardando_Inicio
 
         }

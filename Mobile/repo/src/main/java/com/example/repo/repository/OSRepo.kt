@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import com.example.data.dao.OSDao
 import com.example.data.database.Database
+import com.example.data.entity.Cliente
 import com.example.data.entity.OS
 import com.example.repo.server.Remote
 import com.example.repo.util.ResponseServidor
@@ -14,5 +15,9 @@ class OSRepo(private val context: Context) {
 
     suspend fun insertServidorOS(os: OS): Response<ResponseServidor<Boolean>> {
         return Remote().insertOS(os)
+    }
+
+    suspend fun GetCliente(cpfCnpj: String): Response<ResponseServidor<Cliente>>{
+        return Remote().getCliente(cpfCnpj)
     }
 }

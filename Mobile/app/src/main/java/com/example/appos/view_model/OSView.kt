@@ -30,7 +30,14 @@ class OSView(private val app: Application) : AndroidViewModel(app) {
 
 
     fun getCliente(request: Int, cpf_cnpj:String) = GlobalScope.launch(Dispatchers.Main) {
+        val ret = OSRepo(app).GetCliente(cpf_cnpj)
+        val dispo = ResponseViewModel<Any>()
+        dispo.id = request
+        dispo.exception = ret.body()?.exception?.let{Exception(it)}
+        dispo.mensagem = ret.body()?.mensagem
+        dispo.objeto = ret.body()?.objeto
 
+        retorno.postValue(dispo)
     }
 
 
