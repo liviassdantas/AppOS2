@@ -22,12 +22,13 @@ class FragListaOS : Fragment() {
         val view = inflater.inflate(R.layout.recycler_listar_os, container, false)
             btnAddOS = view.findViewById(R.id.btnAdd)
 
-            btnAddOS.setOnClickListener {
-                fragmentManager
-                    ?.beginTransaction()
-                    ?.replace(R.id.container_fragment_principal, CadastrarClienteOS())
-                    ?.commit()
-            }
+        btnAddOS.setOnClickListener {
+            fragmentManager
+                ?.beginTransaction()
+                ?.addToBackStack("ListaOS")
+                ?.add(R.id.container_fragment_principal, CadastrarClienteOS(),"CadastrarOS")
+                ?.commit()
+        }
         return  view
     }
 }

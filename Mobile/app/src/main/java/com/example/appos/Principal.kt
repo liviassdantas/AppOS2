@@ -20,7 +20,6 @@ class Principal : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     var toolbar: Toolbar? = null
     lateinit var drawerlayout: DrawerLayout
     lateinit var nvgview: NavigationView
-    var activity = Activity()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +30,7 @@ class Principal : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         setSupportActionBar(toolbar)
         drawerlayout = findViewById(R.id.nvdrawerLayout)
         nvgview = findViewById(R.id.activity_principal_navigationView)
-        nvgview.itemIconTintList= null
+        nvgview.itemIconTintList = null
 
         val toogle = ActionBarDrawerToggle(
             this, drawerlayout, toolbar, R.string.abrir_drawer, R.string.fechar_drawer
@@ -40,7 +39,7 @@ class Principal : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         toogle.syncState()
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container_fragment_principal, FragListaOS(), "ListaOS")
+            .add(R.id.container_fragment_principal, FragListaOS(), "ListaOS")
             .commit()
 
         nvgview.setNavigationItemSelectedListener(this)
@@ -50,21 +49,22 @@ class Principal : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         if (drawerlayout.isDrawerOpen(GravityCompat.START)) {
             drawerlayout.closeDrawer(GravityCompat.START)
         }
+        supportFragmentManager.popBackStack()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-       when(item.itemId){
-           R.id.menu_sair ->{
-               startActivity(Intent(applicationContext, Login::class.java))
-           }
-           R.id.menu_relatar_problema ->{
-               MaterialAlertDialogBuilder(this@Principal)
-                   .setTitle(getString(R.string.ainda_nao_concluido))
-                   .setMessage(getString(R.string.desenvolvendo_recurso))
-                   .setPositiveButton(getString(R.string.ok),null)
-                   .show()
-           }
-       }
+        when (item.itemId) {
+            R.id.menu_sair -> {
+                startActivity(Intent(applicationContext, Login::class.java))
+            }
+            R.id.menu_relatar_problema -> {
+                MaterialAlertDialogBuilder(this@Principal)
+                    .setTitle(getString(R.string.ainda_nao_concluido))
+                    .setMessage(getString(R.string.desenvolvendo_recurso))
+                    .setPositiveButton(getString(R.string.ok), null)
+                    .show()
+            }
+        }
         return true
     }
 

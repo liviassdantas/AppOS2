@@ -7,19 +7,22 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.MaterialComponents"
-        tools:openDrawer="start">
-
-
-
+        tools:openDrawer="end">
 
         <include
                 layout="@layout/activity_principal_navdrawer_layoutoolbar" />
+
 
         <FrameLayout
                 android:id="@+id/container_fragment_principal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                />
+                android:layout_marginTop="?attr/actionBarSize"
+                android:paddingTop="?attr/actionBarSize"
+                tools:background="#000"/>
+
+
+
 
 
         <com.google.android.material.navigation.NavigationView

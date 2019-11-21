@@ -22,8 +22,8 @@ interface APIAppOS {
     @POST("api/OrdemServicoApiController/Cadastrar")
     fun insertOS(@Body requestBody: RequestBody): Call<ResponseServidor<Boolean>>
 
-    @GET("api/OrdemServicoApiController/GetCliente")
-    fun getCliente(@Query("cpf_cnpj") cpf_cnpj: String): Call<ResponseServidor<Cliente>>
+    @GET("api/ClienteApiController/GetCliente")
+    fun getCliente(@Query("busca") busca: String): Call<ResponseServidor<ArrayList<Cliente>>>
 
 
 

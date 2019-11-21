@@ -38,36 +38,35 @@ class FragLogin : Fragment() {
         const val RECEBER_EMPRESA = 102
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
-        edtLogin = view.findViewById(R.id.activity_login_edtLogin)
-        edtSenha = view.findViewById(R.id.activity_login_edtSenha)
-        btnEntrar = view.findViewById(R.id.activity_login_btnEntrar)
-        btnCadastrarEmpresa = view.findViewById(R.id.activity_login_btnSemCadastro)
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         empresaViewModel.empresaLiveData.observe(this@FragLogin, Observer {
             when (it.id) {
                 RECEBER_EMPRESA -> {
                     when {
-                        it.exception != null -> MaterialAlertDialogBuilder(context)
-                            .setTitle(getString(R.string.erro_cadastro))
-                            .setMessage(it.exception?.message ?: getString(R.string.sem_conexao))
-                            .setPositiveButton(
-                                getString(R.string.ok)
-                            ) { _, _ -> fragmentManager?.popBackStack() }
-                            .show()
+                        it.exception != null -> {
+                            MaterialAlertDialogBuilder(context)
+                                .setTitle(getString(R.string.erro_cadastro))
+                                .setMessage(
+                                    it.exception?.message ?: getString(R.string.sem_conexao)
+                                )
+                                .setPositiveButton(
+                                    getString(R.string.ok)
+                                ) { _, _ -> fragmentManager?.popBackStack() }
+                                .show()
+                        }
                         it.mensagem != null -> MaterialAlertDialogBuilder(context)
                             .setTitle(getString(R.string.aviso_cadastro))
                             .setMessage(it.mensagem ?: getString(R.string.sem_conexao))
                             .setPositiveButton(
                                 getString(R.string.ok)
-                            ) { _, _ -> fragmentManager?.popBackStack() }
+                                ,null)
                             .show()
                         else -> {
                             it.objeto?.let { objeto ->
                                 val empresa = (objeto as Empresa)
                                 Prefs(context!!).setUsuario(empresa)
-                                startActivity(Intent(context,Principal::class.java))
+                                startActivity(Intent(activity,Principal::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                             }
                         }
                     }
@@ -76,6 +75,15 @@ class FragLogin : Fragment() {
             }
 
         })
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
+        val view = inflater.inflate(R.layout.fragment_login, container, false)
+        edtLogin = view.findViewById(R.id.activity_login_edtLogin)
+        edtSenha = view.findViewById(R.id.activity_login_edtSenha)
+        btnEntrar = view.findViewById(R.id.activity_login_btnEntrar)
+        btnCadastrarEmpresa = view.findViewById(R.id.activity_login_btnSemCadastro)
+
 
         btnEntrar?.setOnClickListener {
             val cpf_cnpj = edtLogin?.text.toString()
@@ -85,12 +93,25 @@ class FragLogin : Fragment() {
         }
 
         btnCadastrarEmpresa?.setOnClickListener {
+
+
             fragmentManager?.beginTransaction()
                 ?.addToBackStack("Login")
-                ?.replace(R.id.container_fragment_principal, CadastrarEmpresa(), "Login")
+                ?.replace(R.id.container_fragment_login, CadastrarEmpresa(), "CadastrarEmpresa")
                 ?.commit()
+            if(edtLogin?.text.toString().isEmpty().not()){
+                edtLogin?.text?.clear()
+            }
+            if(edtSenha?.text.toString().isEmpty().not()){
+                edtSenha?.setText("")
+            }
         }
         return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        empresaViewModel.limparDados()
     }
 }
 

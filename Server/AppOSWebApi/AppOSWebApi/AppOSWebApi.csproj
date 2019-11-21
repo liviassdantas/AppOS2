@@ -184,12 +184,14 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ClienteApiController.cs" />
     <Compile Include="Controllers\EmpresaApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginApiController.cs" />
     <Compile Include="Controllers\OrdemServicoApiController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Persistence\DAO\BaseDAO.cs" />
+    <Compile Include="Persistence\DAO\ClienteDAO.cs" />
     <Compile Include="Persistence\DAO\Ordem_ServicoDAO.cs" />
     <Compile Include="Persistence\DataSource.cs" />
     <Compile Include="Persistence\Model\BaseModel.cs" />

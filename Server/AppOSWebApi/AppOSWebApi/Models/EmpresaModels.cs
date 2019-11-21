@@ -8,11 +8,11 @@ namespace AppOSWebApi.Models
 {
     public class Empresa: BaseModel
     {
-        public String CPFCNPJ { get; set; }
+        public String cpfcnpj { get; set; }
         public String Nome { get; set; }
         public EnderecoModels Endereco { get; set; }
         public String Telefone { get; set; }
-        public DateTime Data_Ultima_Atualizacao { get; set; }
+        public String Data_Ultima_Atualizacao { get; set; }
         public String Email { get;set; }
         public EmpresaLoginModels Login { get; set; }
 

@@ -160,13 +160,17 @@ class CadastrarEmpresa : Fragment() {
             when (it.id) {
                 CADASTRAR_EMPRESA -> {
                     when {
-                        it.exception != null -> MaterialAlertDialogBuilder(context)
-                            .setTitle(getString(R.string.erro_cadastro))
-                            .setMessage(it.exception?.message ?: getString(R.string.sem_conexao))
-                            .setPositiveButton(
-                                getString(R.string.ok)
-                            ) { _, _ -> fragmentManager?.popBackStack() }
-                            .show()
+                        it.exception != null -> {
+                            MaterialAlertDialogBuilder(context)
+                                .setTitle(getString(R.string.erro_cadastro))
+                                .setMessage(
+                                    it.exception?.message ?: getString(R.string.sem_conexao)
+                                )
+                                .setPositiveButton(
+                                    getString(R.string.ok)
+                                ) { _, _ -> fragmentManager?.popBackStack() }
+                                .show()
+                        }
                         it.mensagem != null -> MaterialAlertDialogBuilder(context)
                             .setTitle(getString(R.string.aviso_cadastro))
                             .setMessage(it.mensagem?: getString(R.string.sem_conexao))
@@ -196,4 +200,6 @@ class CadastrarEmpresa : Fragment() {
         super.onDestroyView()
         empresaViewModel.empresaLiveData.removeObservers(this@CadastrarEmpresa)
     }
+
+
 }

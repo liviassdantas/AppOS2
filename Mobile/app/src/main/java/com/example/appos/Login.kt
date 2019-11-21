@@ -13,7 +13,7 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container_fragment_principal, FragLogin(), "Login")
+            .replace(R.id.container_fragment_login, FragLogin(), "Login")
             .commit()
 
 

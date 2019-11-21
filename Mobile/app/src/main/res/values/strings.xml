@@ -14,7 +14,7 @@
     <string name="cadastrar_empresa">Cadastrar Empresa</string>
     <string name="cpf_cnpj">CPF ou CNPJ:</string>
     <string name="nomeempresa">Nome da empresa ou razão social:</string>
-    <string name="telefone">Telefone:</string>
+    <string name="telefone">Telefone.: %s</string>
     <string name="endereco">Endereço:</string>
     <string name="bairro">Bairro:</string>
     <string name="cidade">Cidade:</string>
@@ -58,6 +58,13 @@
     <string name="sair">Sair</string>
     <string name="relatar_um_problema">Relatar um problema</string>
     <string name="ainda_nao_concluido">Recurso em desenvolvimento</string>
-    <string name="desenvolvendo_recurso">No momento esse recurso não se encontra disponível. Assim que for finalizado, será disponibilizado como uma atualização da loja!</string> />
+    <string name="desenvolvendo_recurso">No momento esse recurso não se encontra disponível. Assim que for finalizado, será disponibilizado como uma atualização da loja!</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="cliente_nao_encontrado">Cliente não encontrado</string>
+    <string name="cpf_ou_cnpj_cliente">CPF ou CNPJ .: %s</string>
+    <string name="nome_cliente">Nome .: %s</string>
+    <string name="endereco_cliente">Endereço .:  \n\t\t\t%s</string>
+
 
 </resources>

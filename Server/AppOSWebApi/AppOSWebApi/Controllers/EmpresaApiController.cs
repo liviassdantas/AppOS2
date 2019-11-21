@@ -19,12 +19,12 @@ namespace AppOSWebApi.Controllers
             var retorno = new PostApiResponse<bool>();
             try
             {
-                Expression<Func<Empresa, bool>> filter = x => x.CPFCNPJ.Equals(values.CPFCNPJ);
+                Expression<Func<Empresa, bool>> filter = x => x.cpfcnpj.Equals(values.cpfcnpj);
                 var EmpresaCadastradas = new EmpresaDAO().FindByWhere(filter);
                 if (EmpresaCadastradas.Count() == 0)
                 {
-                    values.Data_Modificacao = DateTime.Now;
-                    values.Data_Ultima_Atualizacao = DateTime.Now;
+                    values.Data_Modificacao = DateTime.Now.ToString();
+                    values.Data_Ultima_Atualizacao = DateTime.Now.ToString();
 
                     await new EmpresaDAO().Insert(values);
                     retorno.Result = true;
@@ -56,7 +56,7 @@ namespace AppOSWebApi.Controllers
             var retorno = new PostApiResponse<bool>();
             try
             {
-                Expression<Func<Empresa, bool>> filter = x => x.CPFCNPJ.Equals(values.CPFCNPJ) && x.Login.Senha.Equals(values.Senha_Antiga);
+                Expression<Func<Empresa, bool>> filter = x => x.cpfcnpj.Equals(values.CPFCNPJ) && x.Login.Senha.Equals(values.Senha_Antiga);
                 var empresa = new EmpresaDAO().FindFirstBywhere(filter);
                 if (empresa == null)
                 {
@@ -67,8 +67,8 @@ namespace AppOSWebApi.Controllers
                 else
                 {
                     empresa.Login.Senha = values.Senha_Nova;
-                    empresa.Data_Modificacao = DateTime.Now;
-                    empresa.Data_Ultima_Atualizacao = DateTime.Now;
+                    empresa.Data_Modificacao = DateTime.Now.ToString();
+                    empresa.Data_Ultima_Atualizacao = DateTime.Now.ToString();
                     await new EmpresaDAO().Update(empresa);
 
                     retorno.Result = true;
@@ -92,7 +92,7 @@ namespace AppOSWebApi.Controllers
             var retorno = new PostApiResponse<Empresa>();
             try
             {
-                Expression<Func<Empresa, bool>> filter = x => x.CPFCNPJ.Equals(values.CPFCNPJ);
+                Expression<Func<Empresa, bool>> filter = x => x.cpfcnpj.Equals(values.cpfcnpj);
                 var empresaCadastrada = new EmpresaDAO().FindFirstBywhere(filter);
                 if (empresaCadastrada == null)
                 {
@@ -105,9 +105,9 @@ namespace AppOSWebApi.Controllers
                     {
                         _id = empresaCadastrada._id,
                         id = empresaCadastrada.id,
-                        CPFCNPJ = empresaCadastrada.CPFCNPJ,
-                        Data_Modificacao = DateTime.Now,
-                        Data_Ultima_Atualizacao = DateTime.Now,
+                        cpfcnpj = empresaCadastrada.cpfcnpj,
+                        Data_Modificacao = DateTime.Now.ToString(),
+                        Data_Ultima_Atualizacao = DateTime.Now.ToString(),
                         Email = values.Email,
                         Endereco = values.Endereco,
                         Login = values.Login,

@@ -19,7 +19,7 @@ namespace AppOSWebApi.Core
             }
         }
 
-        public DateTime Data_Modificacao { get; set; }
+        public String Data_Modificacao { get; set; }
 
     }
 }
