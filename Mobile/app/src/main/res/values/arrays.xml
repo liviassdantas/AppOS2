@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_status">
+        <item>Aguardando início do projeto</item>
+        <item>Aguardando materiais necessários</item>
+        <item>Em Desenvolvimento</item>
+        <item>Aguardando Liberação</item>
+        <item>Retirada Disponivel</item>
+    </string-array>
+</resources>

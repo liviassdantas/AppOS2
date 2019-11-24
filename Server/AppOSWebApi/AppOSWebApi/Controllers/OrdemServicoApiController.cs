@@ -38,7 +38,7 @@ namespace AppOSWebApi.Controllers
                     var empresa = new EmpresaDAO().FindFirstBywhere(filter);
 
 
-                    Expression<Func<OrdemServico, bool>> filterOrdem = x => x.Num_OS.Equals(values.num_os) && x.Empresa == empresa._id;
+                    Expression<Func<OrdemServico, bool>> filterOrdem = x => x.num_os.Equals(values.num_os) && x.Empresa == empresa._id;
                     var ordem = new Ordem_ServicoDAO().FindByWhere(filterOrdem);
 
                     if (ordem.Count() != 0)
@@ -73,17 +73,17 @@ namespace AppOSWebApi.Controllers
 
                             var ordem_servico = new OrdemServico
                             {
-                                Num_OS = values.num_os,
-                                ClienteResp = cliente._id,
+                                num_os = values.num_os,
+                                cliente_responsavel = cliente._id,
                                 Empresa = empresa._id,
-                                Data_Agendamento = values.data_agendamento,
+                                data_agendamento = values.data_agendamento,
                                 Data_Modificacao = DateTime.Now.ToString(),
-                                Descricao_Problema = values.descricao_problema,
+                                descricao_problema = values.descricao_problema,
                                 //Observacao_Produto = values.Observacao_produto,
                                 Produto = values.Produto,
-                                Tecnico_Resp = values.tecnicoResp,
+                                tecnicoResp = values.tecnicoResp,
                                 //Valor_Servico = values.Valor_Servico,
-                                Status = values.status_os,
+                                status_os = values.status_os,
 
                             };
                             await new Ordem_ServicoDAO().Insert(ordem_servico);
@@ -108,6 +108,52 @@ namespace AppOSWebApi.Controllers
         }
 
 
+        [HttpGet]
+        [Route("api/OrdemServicoApiController/GetOrdemServicoEmpresa")]
+        public PostApiResponse<List<OrdemServicoModel>> GetOrdemServicoEmpresa(String cpf_cnpj)
+        {
+            var retorno = new PostApiResponse<List<OrdemServicoModel>>();
+
+            try
+            {
+                if (String.IsNullOrEmpty(cpf_cnpj))
+                {
+                    retorno.Result = false;
+                    retorno.Mensagem = "CNPJ ou CPF da Empresa não informado";
+                }
+                else
+                {
+
+                    Expression<Func<Empresa, bool>> filterEmpresa = x => x.cpfcnpj == cpf_cnpj;
+                    var empresa = new EmpresaDAO().FindFirstBywhere(filterEmpresa);
+
+                    if (empresa == null)
+                    {
+                        retorno.Result = false;
+                        retorno.Mensagem = "Empresa não encontrada";
+                    }
+                    else
+                    {
+
+                        var lista =  new Ordem_ServicoDAO().GetAll(empresa._id);
+                                             
+                        
+                        retorno.Result = true;
+                        retorno.Objeto = lista;
+                       
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                retorno.Result = false;
+                retorno.Exception = ex.Message;
+            }
+
+            return retorno;
+
+        }
 
 
         [HttpGet]
@@ -138,7 +184,7 @@ namespace AppOSWebApi.Controllers
 
                     if (empresa != null)
                     {
-                        Expression<Func<OrdemServico, bool>> filterOrdem = x => x.Num_OS == Num_OS && x.Empresa == empresa._id;
+                        Expression<Func<OrdemServico, bool>> filterOrdem = x => x.num_os == Num_OS && x.Empresa == empresa._id;
                         ordem = new Ordem_ServicoDAO().FindFirstBywhere(filterOrdem);
                     }
                     else
@@ -147,7 +193,7 @@ namespace AppOSWebApi.Controllers
                         var cliente = new ClienteDAO().FindFirstBywhere(filterCliente);
                         if (cliente != null)
                         {
-                            Expression<Func<OrdemServico, bool>> filterOrdem = x => x.Num_OS == Num_OS && x.ClienteResp == cliente._id;
+                            Expression<Func<OrdemServico, bool>> filterOrdem = x => x.num_os == Num_OS && x.cliente_responsavel == cliente._id;
                             ordem = new Ordem_ServicoDAO().FindFirstBywhere(filterOrdem);
                         }
                     }
@@ -179,45 +225,47 @@ namespace AppOSWebApi.Controllers
 
         [HttpPost]
         [Route("api/OrdemServicoApiController/EditarOrdemServico")]
-        public async Task<PostApiResponse<bool>> EditarOrdemServico(OrdemServico values)
+        public async Task<PostApiResponse<bool>> EditarOrdemServico(OrdemServicoCadastro values)
         {
             PostApiResponse<bool> resposta = new PostApiResponse<bool>();
             try
             {
 
-                if (values.Num_OS == 0 || values.Num_OS == null)
+                if (values.num_os == 0 || values.num_os == null)
                 {
                     resposta.Result = false;
                     resposta.Mensagem = "Numero da OS em Branco.";
                 }
-                else if (values.Empresa == null)
+                else if (String.IsNullOrEmpty(values.cpfCnpj))
                 {
                     resposta.Result = false;
                     resposta.Mensagem = "CPF ou CNPJ não informando";
                 }
                 else
                 {
+                    Expression<Func<Empresa, bool>> filter2 = x => x.cpfcnpj == values.cpfCnpj;
+                    var EmpresaEncontrada = new EmpresaDAO().FindFirstBywhere(filter2);
 
-                    Expression<Func<OrdemServico, bool>> filter = x => x.Num_OS == values.Num_OS && x.Empresa == values.Empresa;
+                    Expression<Func<OrdemServico, bool>> filter = x => x.num_os == values.num_os && x.Empresa == EmpresaEncontrada._id;
                     var Ordem_Atualizada = new Ordem_ServicoDAO().FindFirstBywhere(filter);
 
                     if (Ordem_Atualizada != null)
                     {
 
-                        Expression<Func<Empresa, bool>> filter2 = x => x._id == Ordem_Atualizada.Empresa;
-                        var EmpresaEncontrada = new EmpresaDAO().FindFirstBywhere(filter2);
+                        
 
                         if (EmpresaEncontrada != null)
                         {
 
-                            Ordem_Atualizada.Data_Agendamento = values.Data_Agendamento;
+                            Ordem_Atualizada.data_agendamento = values.data_agendamento;
                             Ordem_Atualizada.Data_Modificacao = DateTime.Now.ToString();
-                            Ordem_Atualizada.Descricao_Problema = values.Descricao_Problema;
+                            Ordem_Atualizada.descricao_problema = values.descricao_problema;
                             Ordem_Atualizada.Empresa = EmpresaEncontrada._id;
-                            Ordem_Atualizada.Observacao_Produto = values.Observacao_Produto;
+                            Ordem_Atualizada.observacao_produto = values.observacao_produto;
                             Ordem_Atualizada.Produto = values.Produto;
-                            Ordem_Atualizada.Tecnico_Resp = values.Tecnico_Resp;
-                            Ordem_Atualizada.Valor_Servico = values.Valor_Servico;
+                            Ordem_Atualizada.tecnicoResp = values.tecnicoResp;
+                            Ordem_Atualizada.valor_servico = values.valor_servico;
+                            Ordem_Atualizada.status_os = values.status_os;
 
                             await new Ordem_ServicoDAO().Update(Ordem_Atualizada);
 
@@ -276,12 +324,12 @@ namespace AppOSWebApi.Controllers
                     Expression<Func<Empresa, bool>> filter = x => x.cpfcnpj == values.CPFCNPJ_Empresa;
                     var empresa_encontrada = new EmpresaDAO().FindFirstBywhere(filter);
 
-                    Expression<Func<OrdemServico, bool>> filterOrdem = x => x.Num_OS == values.Num_OS && x.Empresa == empresa_encontrada._id;
+                    Expression<Func<OrdemServico, bool>> filterOrdem = x => x.num_os == values.Num_OS && x.Empresa == empresa_encontrada._id;
                     var ordem_encontra = new Ordem_ServicoDAO().FindFirstBywhere(filterOrdem);
 
                     if (ordem_encontra != null)
                     {
-                        ordem_encontra.Status = values.status;
+                        ordem_encontra.status_os = values.status;
                         await new Ordem_ServicoDAO().Update(ordem_encontra);
                         resposta.Result = true;
                         resposta.Mensagem = "Status Atualizado com sucesos ";
@@ -329,7 +377,7 @@ namespace AppOSWebApi.Controllers
                     Expression<Func<Empresa, bool>> filterEmpresa = x => x.cpfcnpj == CPFCNPJ;
                     var empresa = new EmpresaDAO().FindFirstBywhere(filterEmpresa);
 
-                    Expression<Func<OrdemServico, bool>> filter = x => x.Num_OS == Num_OS && x.Empresa == empresa._id;
+                    Expression<Func<OrdemServico, bool>> filter = x => x.num_os == Num_OS && x.Empresa == empresa._id;
                     var ordem_encontrada = new Ordem_ServicoDAO().FindFirstBywhere(filter);
                     if (ordem_encontrada != null)
                     {

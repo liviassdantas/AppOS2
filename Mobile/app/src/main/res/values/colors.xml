@@ -10,4 +10,7 @@
     <color name="preto">#000000</color>
     <color name="cinza">#808080</color>
     <color name="cinza_claro">#E5E7E9</color>
+    <color name="verde">#13CE66</color>
+    <color name="verde_claro">#77D353</color>
+    <color name="amarelo_status">#FF9052</color>
 </resources>

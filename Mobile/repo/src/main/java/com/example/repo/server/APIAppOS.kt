@@ -25,6 +25,11 @@ interface APIAppOS {
     @GET("api/ClienteApiController/GetCliente")
     fun getCliente(@Query("busca") busca: String): Call<ResponseServidor<ArrayList<Cliente>>>
 
+    @GET("api/OrdemServicoApiController/GetOrdemServicoEmpresa")
+    fun getOrdemServico(@Query("cpf_cnpj")cpfcnpjEmpresa: String?): Call<ResponseServidor<ArrayList<OS>>>
+
+    @POST("api/OrdemServicoApiController/EditarOrdemServico")
+    fun AtualizarOS(@Body requestBody: RequestBody): Call<ResponseServidor<Boolean>>
 
 
 }

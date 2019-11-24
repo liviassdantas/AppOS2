@@ -12,11 +12,13 @@ import com.example.data.entity.Cliente
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textview.MaterialTextView
 
-class AdapterCliente(val frag: Fragment, val listaCliente: MutableList<Cliente>):RecyclerView.Adapter<AdapterCliente.Holder>(){
+class AdapterCliente(val context: Context, val listaCliente: MutableList<Cliente>):RecyclerView.Adapter<AdapterCliente.Holder>(){
 
-    var callback : ClienteCallback? = null
+
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        return  Holder(LayoutInflater.from(frag.context).inflate(R.layout.adapter_lista_cliente,parent,false))
+        return  Holder(LayoutInflater.from(context).inflate(R.layout.adapter_lista_cliente,parent,false))
     }
 
     override fun getItemCount(): Int = listaCliente.size
@@ -28,10 +30,7 @@ class AdapterCliente(val frag: Fragment, val listaCliente: MutableList<Cliente>)
         holder.nomeCliente.text = cliente.nome
         holder.telefoneCliente.text = cliente.telefone
         holder.enderecocliente.text = cliente.endereco?.logradouro?: ""
-        holder.cardView.setOnClickListener {
-            frag.fragmentManager?.popBackStack()
-            callback?.clienteSelecionado(cliente)
-        }
+
     }
 
 
