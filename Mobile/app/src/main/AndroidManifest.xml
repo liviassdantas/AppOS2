@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".Entrada">
         </activity>
-        <activity android:name=".CadastrarClienteOS">
+        <activity android:name=".frag.CadastrarClienteOS">
         </activity>
         <activity android:name=".Principal"/>
     </application>

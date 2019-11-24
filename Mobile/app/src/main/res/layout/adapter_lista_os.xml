@@ -14,57 +14,71 @@
         android:minHeight="180dp">
 
 
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/adapter_lista_os_txtTipoServico"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/tipo_de_servico"
-                    android:textColor="@color/preto"
-                    android:textSize="30sp"
+        <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/adapter_lista_os_txtTipoServico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="28dp"
+                android:text="@string/tipo_de_servico"
+                android:textColor="@color/preto"
+                android:textSize="30sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                    />
+        <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/adapter_lista_os_txtNumOS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/preencher_numos"
+                android:textColor="@color/cinza"
+                android:textSize="20sp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/adapter_lista_os_txtTipoServico" />
 
-            <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/adapter_lista_os_txtNumOS"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@id/adapter_lista_os_txtTipoServico"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginBottom="-40dp"
-                    android:layout_alignStart="@id/adapter_lista_os_txtTipoServico"
-                    android:text="@string/preencher_numos"
-                    android:textColor="@color/cinza"
-                    android:textSize="20sp" />
+        <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/adapter_lista_os_txtNomeCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/adapter_nome_s"
+                android:layout_marginStart="15dp"
+                android:textColor="@color/cinza"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/adapter_lista_os_txtNumOS"/>
 
-            <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/adapter_lista_os_btnAtualizar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/adapter_lista_os_txtNumOS"
-                    android:layout_marginTop="50dp"
-                    android:layout_alignStart="@id/adapter_lista_os_txtNumOS"
-                    android:layout_marginBottom="0dp"
-                    android:text="@string/atualizar"
-                    android:textColor="@color/laranjaPrincipal"
-                    android:textSize="20sp" />
+        <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/adapter_lista_os_btnAtualizar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/atualizar"
+                android:textColor="@color/laranjaPrincipal"
+                android:textSize="20sp"
+                android:layout_margin="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/adapter_lista_os_txtNomeCliente"
+                app:layout_constraintStart_toStartOf="parent"
+                 />
 
-            <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/adapter_lista_os_btnContatarCliente"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/adapter_lista_os_txtNumOS"
-                    android:layout_marginTop="50dp"
-                    android:layout_alignStart="@id/adapter_lista_os_btnAtualizar"
-                    android:layout_marginStart="120dp"
-                    android:text="@string/contatar_cliente"
-                    android:textColor="@color/laranjaPrincipal"
-                    android:textSize="20sp" />
-        </RelativeLayout>
+        <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/adapter_lista_os_btnContatarCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/contatar_cliente"
+                android:textColor="@color/laranjaPrincipal"
+                android:textSize="20sp"
+                android:layout_margin="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/adapter_lista_os_txtNomeCliente"
+               />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.circularreveal.cardview.CircularRevealCardView>

@@ -33,7 +33,7 @@ namespace AppOSWebApi.Persistence.DAO
             IMongoDatabase banco = DataSource.GetConnection();
             IMongoCollection<T> collection = banco.GetCollection<T>(obj.GetType().Name);
 
-            var consulta = Builders<T>.Filter.Eq("id", obj._id);
+            var consulta = Builders<T>.Filter.Eq("_id", obj._id);
             await collection.ReplaceOneAsync(consulta, obj);
 
             //}

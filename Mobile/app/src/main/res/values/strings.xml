@@ -14,7 +14,7 @@
     <string name="cadastrar_empresa">Cadastrar Empresa</string>
     <string name="cpf_cnpj">CPF ou CNPJ:</string>
     <string name="nomeempresa">Nome da empresa ou razão social:</string>
-    <string name="telefone">Telefone.: %s</string>
+    <string name="telefone">Telefone.: </string>
     <string name="endereco">Endereço:</string>
     <string name="bairro">Bairro:</string>
     <string name="cidade">Cidade:</string>
@@ -33,8 +33,8 @@
     <string name="cadastro_de_cliente">Cadastrar Cliente</string>
     <string name="cpf">CPF</string>
     <string name="nome">Nome do Cliente</string>
-    <string name="tipo_de_servico">Tipo de serviço</string>
-    <string name="preencher_numos">N°.:%s</string>
+    <string name="tipo_de_servico">Tipo de serviço.:</string>
+    <string name="preencher_numos">N°.: %s</string>
     <string name="atualizar">Atualizar</string>
     <string name="contatar_cliente">Contatar Cliente</string>
     <string name="email">Email:</string>
@@ -65,6 +65,11 @@
     <string name="cpf_ou_cnpj_cliente">CPF ou CNPJ .: %s</string>
     <string name="nome_cliente">Nome .: %s</string>
     <string name="endereco_cliente">Endereço .:  \n\t\t\t%s</string>
+    <string name="atualizar_status_da_os">Atualizar Status da OS</string>
+    <string name="selecionar_novo_status">Selecionar novo Status.:</string>
+    <string name="descri_o_da_atualiza_o">Descrição da atualização.:</string>
+    <string name="selecione_o_status">Selecione o Status.:</string>
+    <string name="adapter_nome_s">Nome.: %s</string>
 
 
 </resources>

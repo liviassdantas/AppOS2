@@ -47,5 +47,19 @@ class Remote {
 
     }
 
+    suspend fun getOrdemServico(cpfcnpjEmpresa: String?): Response<ResponseServidor<ArrayList<OS>>> {
+        val callRetrofit = APIAppOSInitializer().apiAppOS().getOrdemServico(cpfcnpjEmpresa)
+        return  callRetrofit.awaitResponse()
+    }
+
+    suspend fun atualizarOS(item: OS): Response<ResponseServidor<Boolean>> {
+        val json = Gson().toJson(item)
+        val body =
+            RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), json)
+        val callRetrofit = APIAppOSInitializer().apiAppOS().AtualizarOS(body)
+
+        return callRetrofit.awaitResponse()
+    }
+
 
 }

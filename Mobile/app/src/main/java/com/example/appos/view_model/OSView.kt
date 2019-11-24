@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.appos.R
+import com.example.data.entity.Empresa
 import com.example.data.entity.OS
 import com.example.repo.controller.OSCadastro
 import com.example.repo.repository.OSRepo
@@ -50,12 +51,41 @@ class OSView(private val app: Application) : AndroidViewModel(app) {
     }
 
 
-    fun limparDados(){
-        retorno.postValue(ResponseViewModel())
+    fun getOS(request: Int,empresa: Empresa?) = GlobalScope.launch(Dispatchers.IO) {
+        val dispo = ResponseViewModel<Any>()
+        dispo.id =request
+        try{
+            val ret = OSRepo(app).GetOrdemServico(empresa?.cpfcnpj)
+            dispo.exception = ret.body()?.exception?.let{Exception(it)}
+            dispo.mensagem = ret.body()?.mensagem
+            dispo.objeto = ret.body()?.objeto
+        }catch (ex:Exception){
+            dispo.exception = Exception(app.getString(R.string.sem_conexao))
+        }
+
+        retorno.postValue(dispo)
+    }
+
+    fun atualizarOS(request: Int, item: OS) =GlobalScope.launch(Dispatchers.IO){
+        val dispo = ResponseViewModel<Any>()
+        dispo.id =request
+        try{
+            val ret = OSRepo(app).AtualizarOS(item)
+            dispo.exception = ret.body()?.exception?.let{Exception(it)}
+            dispo.mensagem = ret.body()?.mensagem
+            dispo.objeto = ret.body()?.objeto
+        }catch (ex:Exception){
+            dispo.exception = Exception(app.getString(R.string.sem_conexao))
+        }
+
+        retorno.postValue(dispo)
     }
 
 
 
+    fun limparDados(){
+        retorno.postValue(ResponseViewModel())
+    }
 
 
 }

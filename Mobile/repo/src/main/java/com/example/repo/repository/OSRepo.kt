@@ -21,4 +21,12 @@ class OSRepo(private val context: Context) {
     suspend fun GetCliente(cpfCnpj: String): Response<ResponseServidor<ArrayList<Cliente>>>{
         return Remote().getCliente(cpfCnpj)
     }
+
+    suspend fun GetOrdemServico(cpfcnpjEmpresa: String?): Response<ResponseServidor<ArrayList<OS>>> {
+        return  Remote().getOrdemServico(cpfcnpjEmpresa)
+    }
+
+    suspend fun AtualizarOS(item: OS): Response<ResponseServidor<Boolean>> {
+        return  Remote().atualizarOS(item)
+    }
 }

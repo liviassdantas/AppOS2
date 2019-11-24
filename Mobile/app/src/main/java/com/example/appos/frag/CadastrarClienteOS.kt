@@ -1,4 +1,4 @@
-package com.example.appos
+package com.example.appos.frag
 
 import Component.CircularProgressButton.customViews.RobinCircularProgressButton
 import Component.CircularProgressButton.utils.morphAndRevert
@@ -13,8 +13,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.example.appos.R
 import com.example.appos.adapter.AdapterCliente
-import com.example.appos.frag.ListaCliente
 import com.example.appos.util.Prefs
 import com.example.appos.view_model.OSView
 import com.example.data.entity.*
@@ -55,8 +55,39 @@ class CadastrarClienteOS : Fragment() {
         const val CONSULTAR_CLIENTE = 103
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+    }
+*/
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_cadastar_os, container, false)
+
+        edtNumOs = view.findViewById(R.id.fragment_cadastrar_OS_edtNumOs)
+        edtDescricaoServico = view.findViewById(R.id.fragment_cadastrar_OS_edtDescServico)
+        edtResponsavelTecnico = view.findViewById(R.id.fragment_cadastrar_OS_edtResponsavel)
+        edtCPFClienteNome = view.findViewById(R.id.fragment_cadastrar_OS_edtCPF_Nome)
+
+
+        edtCPFCliente = view.findViewById(R.id.fragment_cadastrar_cliente_edtCPF)
+        edtNomeCliente = view.findViewById(R.id.fragment_cadastrar_cliente_edtNomeCliente)
+        edtTelefoneCliente = view.findViewById(R.id.fragment_cadastrar_cliente_edtTelefone)
+        edtCep = view.findViewById(R.id.fragment_cadastrar_cliente_edtCep)
+        edtEndereco = view.findViewById(R.id.fragment_cadastrar_cliente_edtEndereco)
+        edtEstado = view.findViewById(R.id.fragment_cadastrar_cliente_edtEstado)
+        edtCidade = view.findViewById(R.id.fragment_cadastrar_cliente_edtCidade)
+        edtBairro = view.findViewById(R.id.fragment_cadastrar_cliente_edtBairro)
+        edtNum_Residencia = view.findViewById(R.id.fragment_cadastrar_cliente_edtNumResidencia)
+
+
+        btnCadastrarCliente = view.findViewById(R.id.activity_cadastrar_os_btnSalvar)
+
+
+
         osViewModel.osLiveData.observe(this@CadastrarClienteOS, Observer {
             when (it.id) {
                 CONSULTAR_CLIENTE -> {
@@ -85,21 +116,28 @@ class CadastrarClienteOS : Fragment() {
                         else -> {
                             val clientes = it.objeto as ArrayList<Cliente>?
                             if (!clientes.isNullOrEmpty()) {
-                                if(clientes.size == 1) {
+                                if (clientes.size == 1) {
                                     inserirOrdemServico(clientes.first())
-                                }else{
-                                    fragmentManager
+                                } else {
+                                    /*fragmentManager
                                         ?.beginTransaction()
-                                        ?.replace(R.id.container_fragment_principal,
-                                            ListaCliente(clientes),"ListaCliente")
-                                        ?.commit()
+                                        ?.replace(
+                                            R.id.container_fragment_principal,
+                                            ListaCliente(clientes), "ListaCliente"
+                                        )
+                                        ?.commit()*/
 
-                                    object : AdapterCliente.ClienteCallback{
-                                        override fun clienteSelecionado(cliente: Cliente) {
+                                    val filtro = ListaCliente(clientes)
+                                    filtro.setCallback(object :ListaCliente.Callback{
+                                        override fun onGetCliente(cliente: Cliente) {
                                             inserirOrdemServico(cliente)
                                         }
 
-                                    }
+                                    })
+
+                                    filtro.show(childFragmentManager,"Filtro_Cliente")
+
+
 
 
                                 }
@@ -163,47 +201,28 @@ class CadastrarClienteOS : Fragment() {
                                 .show()
                         }
                         else -> {
-                            MaterialAlertDialogBuilder(context)
+
+                           MaterialAlertDialogBuilder(this.context)
                                 .setTitle(getString(R.string.cadastrar_ordem))
                                 .setMessage("Cadastrado com sucesso")
-                                .setPositiveButton(getString(R.string.ok) ){_,listener->
-                                    fragmentManager?.popBackStack()
+                                .setPositiveButton(getString(R.string.ok)) { dialog, which ->
+
+                                        Log.i("Teste", "Clicou")
+
+
+
                                 }
                                 .show()
+
 
                         }
                     }
                 }
             }
             btnCadastrarCliente?.morphAndRevert()
+
+
         })
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_cadastar_os, container, false)
-
-        edtNumOs = view.findViewById(R.id.fragment_cadastrar_OS_edtNumOs)
-        edtDescricaoServico = view.findViewById(R.id.fragment_cadastrar_OS_edtDescServico)
-        edtResponsavelTecnico = view.findViewById(R.id.fragment_cadastrar_OS_edtResponsavel)
-        edtCPFClienteNome = view.findViewById(R.id.fragment_cadastrar_OS_edtCPF_Nome)
-
-
-        edtCPFCliente = view.findViewById(R.id.fragment_cadastrar_cliente_edtCPF)
-        edtNomeCliente = view.findViewById(R.id.fragment_cadastrar_cliente_edtNomeCliente)
-        edtTelefoneCliente = view.findViewById(R.id.fragment_cadastrar_cliente_edtTelefone)
-        edtCep = view.findViewById(R.id.fragment_cadastrar_cliente_edtCep)
-        edtEndereco = view.findViewById(R.id.fragment_cadastrar_cliente_edtEndereco)
-        edtEstado = view.findViewById(R.id.fragment_cadastrar_cliente_edtEstado)
-        edtCidade = view.findViewById(R.id.fragment_cadastrar_cliente_edtCidade)
-        edtBairro = view.findViewById(R.id.fragment_cadastrar_cliente_edtBairro)
-        edtNum_Residencia = view.findViewById(R.id.fragment_cadastrar_cliente_edtNumResidencia)
-
-
-        btnCadastrarCliente = view.findViewById(R.id.activity_cadastrar_os_btnSalvar)
 
 
         /*edtNumOs?.error = "Numero da OS não pode ficar em branco"
@@ -214,6 +233,15 @@ class CadastrarClienteOS : Fragment() {
         edtEndereco?.error = "Endereço não pode ficar em branco"
         edtCidade?.error = "Cidade não pode ficar em branco"
         edtBairro?.error = "Bairro não pode ficar em branco"*/
+
+
+        /*   MaterialAlertDialogBuilder(context)
+               .setTitle(getString(R.string.cadastrar_ordem))
+               .setMessage("Cadastrado com sucesso")
+               .setPositiveButton(getString(R.string.ok)) { dialog, which ->
+                   Log.i("Teste", "Clicou")
+               }
+               .show()*/
 
 
         edtCPFClienteNome?.addTextChangedListener(object : TextWatcher {
@@ -272,7 +300,7 @@ class CadastrarClienteOS : Fragment() {
                     osViewModel.insertOS(CADASTRAR_OS, ordem)
                 }
             } else {
-                if(edtCPFClienteNome?.text.toString().isEmpty()){
+                if (edtCPFClienteNome?.text.toString().isEmpty()) {
                     edtCPFClienteNome?.error = "Campo não pode ficar em branco"
                 }
                 MaterialAlertDialogBuilder(context)
@@ -353,7 +381,7 @@ class CadastrarClienteOS : Fragment() {
             cpfCnpj = context?.let { Prefs(it).getUsuario()?.cpfcnpj }
             data_agendamento = DateTime().getData()?.toString()
             descricao_problema = edtDescricaoServico?.text.toString()
-            status_os = StatusEnum.Retirada_Disponivel.value
+            status_os = StatusEnum.Aguardando_Inicio.value
 
         }
     }

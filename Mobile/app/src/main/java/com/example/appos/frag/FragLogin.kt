@@ -71,6 +71,7 @@ class FragLogin : Fragment() {
                         }
                     }
                     btnEntrar?.morphAndRevert(500)
+                    empresaViewModel.limparDados()
                 }
             }
 
