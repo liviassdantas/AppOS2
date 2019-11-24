@@ -8,4 +8,6 @@
     <string name="CPF">CPF:</string>
     <string name="pesquisar">Pesquisar</string>
     <string name="iniciar">iniciar</string>
+    <string name="status_da_os">Status da OS</string>
+    <string name="descricao">Descrição</string>
 </resources>
