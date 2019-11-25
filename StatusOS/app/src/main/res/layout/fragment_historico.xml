@@ -28,7 +28,7 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/historico_num_os"
-        tools:text="Empresa .: \n Nome da Empresa" />
+        tools:text="Serviços muito bons LTDA" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/hisotrico_tipo_servico"
@@ -40,7 +40,7 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/historico_empresa"
-        tools:text="Tipo de serviço .: \n Nome da Empresa" />
+        tools:text="Um serviço TOP demais" />
 
 
     <com.google.android.material.textview.MaterialTextView
@@ -53,7 +53,7 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hisotrico_tipo_servico"
-        tools:text="Nome do cliente .: \n Juvenal " />
+        tools:text="Juvenal " />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/historico"
