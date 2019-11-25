@@ -10,4 +10,11 @@
     <string name="iniciar">iniciar</string>
     <string name="status_da_os">Status da OS</string>
     <string name="descricao">Descrição</string>
+    <string name="n_os_historico">Nº OS.: %s</string>
+    <string name="nome_do_cliente_historico">Nome do cliente .: \n %s</string>
+    <string name="historico_empresa_n_s">Empresa .:   %s</string>
+    <string name="historico_tipo_de_servi_o_n_s">Tipo de serviço .:   %s</string>
+    <string name="hist_rico">Histórico</string>
+    <string name="sem_conexao">Sem conexão com servidor</string>
+    <string name="ok">ok</string>
 </resources>

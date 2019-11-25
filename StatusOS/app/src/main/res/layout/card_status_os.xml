@@ -28,7 +28,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
-            android:visibility="invisible"/>
+            android:visibility="visible"/>
         <ImageView
             android:id="@+id/icone_em_Andamento"
             android:layout_width="80dp"

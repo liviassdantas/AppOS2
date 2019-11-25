@@ -27,6 +27,23 @@ namespace AppOSWebApi.Models
     }
 
 
+    public class OrdemServicoStatus
+    {
+        public Int64 num_os { get; set; }
+        public Empresa empresa { get; set; }
+        public ClienteModels cliente_responsavel { get; set; }
+        public ProdutosModels Produto { get; set; }
+        public String data_agendamento { get; set; }
+        public String descricao_problema { get; set; }
+        public String observacao_produto { get; set; }
+        public Double valor_servico { get; set; }
+        public String tecnicoResp { get; set; }
+
+        public int status_os { get; set; }
+    }
+
+
+
     public class OrdemServicoModel
     {
 

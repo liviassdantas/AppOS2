@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/amareloPrincipal</item>
         <item name="colorPrimaryDark">@color/amareloEscuro</item>
-        <item name="colorAccent">@color/rosa</item>
+        <item name="colorAccent">@color/amareloClaro</item>
     </style>
 
     <style name="StatusOSTheme.NoActionBar">

@@ -2,7 +2,7 @@
 <resources>
     <color name="cinzaclaro">#FAC7C6C6</color>
     <color name="amareloPrincipal">#F2B90C</color>
-    <color name="amareloEscuro">#ffc20d</color>
+    <color name="amareloEscuro">#FFC20D</color>
     <color name="amareloClaro">#DAFFEB3B</color>
     <color name="branco">#FFFFFF</color>
 </resources>

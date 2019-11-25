@@ -135,12 +135,12 @@ namespace AppOSWebApi.Controllers
                     else
                     {
 
-                        var lista =  new Ordem_ServicoDAO().GetAll(empresa._id);
-                                             
-                        
+                        var lista = new Ordem_ServicoDAO().GetAll(empresa._id);
+
+
                         retorno.Result = true;
                         retorno.Objeto = lista;
-                       
+
 
                     }
                 }
@@ -158,9 +158,9 @@ namespace AppOSWebApi.Controllers
 
         [HttpGet]
         [Route("api/OrdemServicoApiController/GetOrdemServico")]
-        public PostApiResponse<OrdemServico> GetOrdemServico(Int64? Num_OS, String CPFCNPJ)
+        public PostApiResponse<OrdemServicoStatus> GetOrdemServico(Int64? Num_OS, String CPFCNPJ)
         {
-            PostApiResponse<OrdemServico> resposta = new PostApiResponse<OrdemServico>();
+            PostApiResponse<OrdemServicoStatus> resposta = new PostApiResponse<OrdemServicoStatus>();
             try
             {
                 if (Num_OS == 0 || Num_OS == null)
@@ -178,7 +178,7 @@ namespace AppOSWebApi.Controllers
                 {
 
                     OrdemServico ordem = null;
-
+                    ClienteModels cliente = null;
                     Expression<Func<Empresa, bool>> filterEmpresa = x => x.cpfcnpj == CPFCNPJ;
                     var empresa = new EmpresaDAO().FindFirstBywhere(filterEmpresa);
 
@@ -190,7 +190,7 @@ namespace AppOSWebApi.Controllers
                     else
                     {
                         Expression<Func<ClienteModels, bool>> filterCliente = x => x.cpf_cnpj == CPFCNPJ;
-                        var cliente = new ClienteDAO().FindFirstBywhere(filterCliente);
+                        cliente = new ClienteDAO().FindFirstBywhere(filterCliente);
                         if (cliente != null)
                         {
                             Expression<Func<OrdemServico, bool>> filterOrdem = x => x.num_os == Num_OS && x.cliente_responsavel == cliente._id;
@@ -207,8 +207,20 @@ namespace AppOSWebApi.Controllers
                     else
                     {
                         resposta.Result = true;
-                        resposta.Mensagem = "Ordem de Serviço Encontrada";
-                        resposta.Objeto = ordem;
+                        resposta.Objeto = new OrdemServicoStatus
+                        {
+                            data_agendamento = ordem.data_agendamento,
+                            descricao_problema = ordem.descricao_problema,
+                            num_os = ordem.num_os,
+                            Produto = ordem.Produto,
+                            observacao_produto = ordem.observacao_produto,
+                            status_os = ordem.status_os,
+                            tecnicoResp = ordem.tecnicoResp,
+                            valor_servico = ordem.valor_servico,
+                            empresa = empresa != null ? empresa : getEmpresa(CPFCNPJ),
+                            cliente_responsavel = cliente != null ? cliente : getCliente(CPFCNPJ)
+
+                        };
                     }
 
                 }
@@ -221,6 +233,18 @@ namespace AppOSWebApi.Controllers
             }
 
             return resposta;
+        }
+
+        private ClienteModels getCliente(string CPFCNPJ)
+        {
+            Expression<Func<ClienteModels, bool>> filterCliente = x => x.cpf_cnpj == CPFCNPJ;
+            return new ClienteDAO().FindFirstBywhere(filterCliente);
+        }
+
+        private Empresa getEmpresa(string CPFCNPJ)
+        {
+            Expression<Func<Empresa, bool>> filterEmpresa = x => x.cpfcnpj == CPFCNPJ;
+            return new EmpresaDAO().FindFirstBywhere(filterEmpresa);
         }
 
         [HttpPost]
@@ -252,7 +276,7 @@ namespace AppOSWebApi.Controllers
                     if (Ordem_Atualizada != null)
                     {
 
-                        
+
 
                         if (EmpresaEncontrada != null)
                         {
