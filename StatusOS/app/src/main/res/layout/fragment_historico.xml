@@ -13,6 +13,8 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
         android:text="@string/n_os_historico"
+        android:textStyle="bold"
+        android:textColor="@color/amareloPrincipal"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,8 +28,9 @@
         android:layout_marginTop="20dp"
         android:text="@string/historico_empresa_n_s"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/historico_num_os"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/historico_num_os"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="Serviços muito bons LTDA" />
 
     <com.google.android.material.textview.MaterialTextView
