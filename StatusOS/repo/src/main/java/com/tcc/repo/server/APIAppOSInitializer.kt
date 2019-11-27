@@ -8,7 +8,7 @@ class APIAppOSInitializer {
     fun init(){}
 
     val empresaRetro: Retrofit? = Retrofit.Builder()
-        .baseUrl("http://192.168.0.25/AppOS/")
+        .baseUrl("http://ec2-18-231-54-143.sa-east-1.compute.amazonaws.com/APPOS/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

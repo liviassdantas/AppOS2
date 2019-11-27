@@ -17,4 +17,11 @@
     <string name="hist_rico">Histórico</string>
     <string name="sem_conexao">Sem conexão com servidor</string>
     <string name="ok">ok</string>
+    <string name="aguardando_inicio">Aguardando Início</string>
+    <string name="aguardando_material">Aguardando Material</string>
+    <string name="em_desenvolvimento">Em desenvolvimento</string>
+    <string name="aguardando_liberacao">Aguardando Material</string>
+    <string name="aguardando_retirada">Aguardando Retirada</string>
+    <string name="problemas_atualizacao">Problemas durante a atualização</string>
+    <string name="problemas_atualizacao_descricao">Não foi possível atualizar o status dessa OS. Tente novamente mais tarde</string>
 </resources>
