@@ -26,7 +26,7 @@
                 android:layout_marginTop="28dp"
                 android:text="@string/tipo_de_servico"
                 android:textColor="@color/preto"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

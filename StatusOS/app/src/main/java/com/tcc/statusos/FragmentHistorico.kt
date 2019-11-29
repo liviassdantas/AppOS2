@@ -39,35 +39,42 @@ class FragmentHistorico(val ordem :OrdemServico) : Fragment() {
         statusDescricao = view.findViewById(R.id.status_os_Descricao_iniciar_atendimento)
 
         txtNumOS.text = String.format(getString(R.string.n_os_historico),ordem.num_os.toString())
-        txtEmpresa.text = ordem.empresa?.nome.toString()
+        if (!ordem.empresa?.nome.isNullOrBlank()) {
+            txtEmpresa.text = ordem.empresa?.nome.toString()
+        }else{
+            txtEmpresa.visibility = View.INVISIBLE
+        }
         txtTipoServico.text = ordem.descricao_problema.toString()
-        txtNomeCliente.text = ordem.cliente_responsavel?.nome.toString()
+        if(!ordem.cliente_responsavel?.nome.isNullOrBlank()) {
+            txtNomeCliente.text = ordem.cliente_responsavel?.nome.toString()
+        }else{
+            txtNomeCliente.visibility = View.INVISIBLE
+        }
 
         when(ordem.status_os){
             0 -> {
-                //statusImagem.setImageDrawable(ContextCompat.getDrawable(context!!,R.drawable.ic_play))
                 statusNome.text= getString(R.string.aguardando_inicio)
-//                statusDescricao.text = ordem.observacao_produto.toString()
+                checaObservacao()
             }
             1 -> {
                 statusImagem.setImageDrawable(ContextCompat.getDrawable(context!!,R.drawable.ic_settings))
                 statusNome.text= getString(R.string.aguardando_material)
-                statusDescricao.text = ordem.observacao_produto.toString()
+                checaObservacao()
             }
             2 -> {
                 statusImagem.setImageDrawable(ContextCompat.getDrawable(context!!,R.drawable.ic_settings))
                 statusNome.text= getString(R.string.em_desenvolvimento)
-                statusDescricao.text = ordem.observacao_produto.toString()
+                checaObservacao()
             }
             3 -> {
                 statusImagem.setImageDrawable(ContextCompat.getDrawable(context!!,R.drawable.ic_settings))
                 statusNome.text= getString(R.string.aguardando_liberacao)
-                statusDescricao.text = ordem.observacao_produto.toString()
+                checaObservacao()
             }
             4 -> {
                 statusImagem.setImageDrawable(ContextCompat.getDrawable(context!!,R.drawable.ic_cheked))
                 statusNome.text= getString(R.string.aguardando_retirada)
-                statusDescricao.text = ordem.observacao_produto.toString()
+                checaObservacao()
             }else ->{
                 statusImagem.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.ic_warning))
                 statusNome.text = getString(R.string.problemas_atualizacao)
@@ -76,8 +83,14 @@ class FragmentHistorico(val ordem :OrdemServico) : Fragment() {
 
         }
 
-
         return view
+    }
+    private fun checaObservacao(){
+        if (!ordem.observacao_produto.isNullOrBlank()) {
+            statusDescricao.text = ordem.observacao_produto.toString()
+        }else{
+            statusDescricao.visibility = View.INVISIBLE
+        }
     }
 
 
